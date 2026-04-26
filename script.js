@@ -248,6 +248,8 @@ function initContactForm() {
                 headers: { 'Accept': 'application/json' }
             });
 
+            const data = await response.json();
+
             if (response.ok) {
                 form.classList.add('hidden');
                 modalTitle.classList.add('hidden');
@@ -255,10 +257,12 @@ function initContactForm() {
                 successMsg.classList.remove('hidden');
                 form.reset();
             } else {
-                alert(currentLang === 'es' ? 'Hubo un error. Intenta de nuevo.' : 'There was an error. Please try again.');
+                console.error("Formspree Error:", data);
+                alert(currentLang === 'es' ? 'Hubo un error: ' + (data.error || 'Intenta de nuevo.') : 'There was an error: ' + (data.error || 'Please try again.'));
             }
         } catch (error) {
-            alert(currentLang === 'es' ? 'Error de conexión.' : 'Connection error.');
+            console.error("Fetch Error:", error);
+            alert(currentLang === 'es' ? 'Error de conexión. Verifica tu internet.' : 'Connection error. Please check your internet.');
         } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = translations[currentLang].form_submit;
