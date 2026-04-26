@@ -24,6 +24,9 @@ const translations = {
         form_message: "Mensaje",
         form_submit: "Enviar Mensaje",
         footer_rights: "Todos los derechos reservados.",
+        form_success_title: "¡Mensaje Enviado!",
+        form_success_desc: "Gracias por contactarme. Te responderé lo antes posible.",
+        btn_close: "Cerrar",
         p1_title: "Rick and Morty App",
         p1_desc: "App Android usando Kotlin, Jetpack Compose y Retrofit.",
         p2_title: "Pokedex KMP",
@@ -71,6 +74,9 @@ const translations = {
         form_message: "Message",
         form_submit: "Send Message",
         footer_rights: "All rights reserved.",
+        form_success_title: "Message Sent!",
+        form_success_desc: "Thank you for reaching out. I will get back to you as soon as possible.",
+        btn_close: "Close",
         p1_title: "Rick and Morty App",
         p1_desc: "Android app using Kotlin, Jetpack Compose and Retrofit.",
         p2_title: "Pokedex KMP",
@@ -109,6 +115,7 @@ function init() {
     initTypewriter();
     initScrollToTop();
     initYear();
+    initContactForm();
 }
 
 // Language Logic
@@ -216,6 +223,66 @@ function toggleMobileMenu() {
 
 function initYear() {
     document.getElementById('year').textContent = new Date().getFullYear();
+}
+
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    const successMsg = document.getElementById('form-success');
+    const submitBtn = document.getElementById('form-submit-btn');
+    const modalTitle = document.querySelector('#contact-modal h2');
+    const modalSubtitle = document.querySelector('#contact-modal p');
+
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        submitBtn.disabled = true;
+        submitBtn.textContent = currentLang === 'es' ? 'Enviando...' : 'Sending...';
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                form.classList.add('hidden');
+                modalTitle.classList.add('hidden');
+                modalSubtitle.classList.add('hidden');
+                successMsg.classList.remove('hidden');
+                form.reset();
+            } else {
+                alert(currentLang === 'es' ? 'Hubo un error. Intenta de nuevo.' : 'There was an error. Please try again.');
+            }
+        } catch (error) {
+            alert(currentLang === 'es' ? 'Error de conexión.' : 'Connection error.');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = translations[currentLang].form_submit;
+        }
+    });
+}
+
+// Reset modal state when closed
+const originalToggleModal = toggleModal;
+toggleModal = function(show) {
+    originalToggleModal(show);
+    if (!show) {
+        setTimeout(() => {
+            const form = document.getElementById('contact-form');
+            const successMsg = document.getElementById('form-success');
+            const modalTitle = document.querySelector('#contact-modal h2');
+            const modalSubtitle = document.querySelector('#contact-modal p');
+            
+            form.classList.remove('hidden');
+            modalTitle.classList.remove('hidden');
+            modalSubtitle.classList.remove('hidden');
+            successMsg.classList.add('hidden');
+        }, 300);
+    }
 }
 
 // Initialize on load
