@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Portfolio | Premium Experience</title>
+    <meta name="description" content="Portfolio profesional de desarrollo con experiencias y proyectos innovadores.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Waves Animation for Navbar */
+        .wave-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+            z-index: -1;
+        }
+
+        .wave-container svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 100px;
+        }
+
+        .wave-container .shape-fill {
+            fill: rgba(59, 130, 246, 0.1);
+        }
+
+        /* Animated Background Waves */
+        .bg-waves {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        @keyframes waveMove {
+            0% { transform: translateX(0) translateZ(0) scaleY(1); }
+            50% { transform: translateX(-25%) translateZ(0) scaleY(0.8); }
+            100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+        }
+
+        .animate-wave {
+            animation: waveMove 20s linear infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 10px;
+        }
+
+        /* Modal Blur */
+        .modal-overlay {
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Vertical Navbar responsiveness */
+        @media (max-width: 1024px) {
+            #navbar {
+                width: 100%;
+                height: auto;
+                bottom: 0;
+                top: auto;
+                flex-direction: row;
+                padding: 1rem;
+            }
+            main {
+                margin-left: 0 !important;
+                margin-bottom: 80px;
+            }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'slide-up': 'slideUp 0.5s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- Background Waves -->
+    <div class="bg-waves overflow-hidden">
+        <svg class="animate-wave opacity-20 dark:opacity-10" viewBox="0 0 120 28" preserveAspectRatio="none" shape-rendering="auto" style="width: 200%; height: 100vh;">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="currentColor" class="text-blue-200 dark:text-blue-900" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="currentColor" class="text-blue-300 dark:text-blue-800" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="currentColor" class="text-blue-400 dark:text-blue-700" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="currentColor" class="text-blue-500 dark:text-blue-600" />
+            </g>
+        </svg>
+    </div>
+
+    <!-- Vertical Navbar -->
+    <nav id="navbar" class="fixed left-0 top-0 h-screen w-64 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between p-8 z-50 transition-all duration-300">
+        <!-- Wave in Navbar background -->
+        <div class="wave-container">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="flex flex-col gap-8">
+            <!-- Profile/Logo -->
+            <div class="flex flex-col items-center gap-4">
+                <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-blue-500 to-cyan-400 p-1 shadow-lg shadow-blue-500/20">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Profile" class="w-full h-full rounded-full bg-white dark:bg-slate-800">
+                </div>
+                <h1 class="text-xl font-bold tracking-tight text-center">Dev Name</h1>
+                <p class="text-xs text-slate-500 dark:text-slate-400 font-mono text-center break-all" id="nav-email">hola@ejemplo.com</p>
+            </div>
+
+            <!-- Nav Links -->
+            <ul class="flex flex-col gap-2">
+                <li>
+                    <a href="#about" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all group" data-i18n="nav_about">
+                        <i data-lucide="user" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                        <span>Quién Soy</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#experience" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all group" data-i18n="nav_exp">
+                        <i data-lucide="briefcase" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                        <span>Experiencia</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#projects" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all group" data-i18n="nav_projects">
+                        <i data-lucide="code" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                        <span>Proyectos</span>
+                    </a>
+                </li>
+                <li>
+                    <button onclick="toggleModal(true)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all group" data-i18n="nav_contact">
+                        <i data-lucide="mail" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                        <span>Contacto</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Bottom Actions -->
+        <div class="flex flex-col gap-6">
+            <!-- Toggles -->
+            <div class="flex items-center justify-around bg-slate-100 dark:bg-slate-800 p-2 rounded-2xl">
+                <button onclick="toggleDarkMode()" class="p-2 rounded-xl hover:bg-white dark:hover:bg-slate-700 transition-all shadow-sm" aria-label="Toggle Dark Mode">
+                    <i data-lucide="moon" id="theme-icon" class="w-5 h-5"></i>
+                </button>
+                <button onclick="toggleLanguage()" class="p-2 rounded-xl hover:bg-white dark:hover:bg-slate-700 transition-all shadow-sm font-bold text-xs" aria-label="Toggle Language">
+                    <span id="lang-text">ES</span>
+                </button>
+            </div>
+
+            <!-- Social Buttons -->
+            <div class="flex justify-center items-center gap-5 pt-4 border-t border-slate-200 dark:border-slate-800">
+                <a href="#" class="group p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 transition-all shadow-sm" aria-label="Github">
+                    <i data-lucide="github" class="w-6 h-6 group-hover:scale-110 transition-transform"></i>
+                </a>
+                <a href="#" class="group p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-blue-600 hover:bg-white dark:hover:bg-slate-700 transition-all shadow-sm" aria-label="Linkedin">
+                    <i data-lucide="linkedin" class="w-6 h-6 group-hover:scale-110 transition-transform"></i>
+                </a>
+                <a href="#" class="group p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-[#F48024] hover:bg-white dark:hover:bg-slate-700 transition-all shadow-sm" aria-label="Stack Overflow">
+                    <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current group-hover:scale-110 transition-transform" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.986 21.865v-6.404h2.134V24H1.844v-8.539h2.13v6.404h15.012zM6.117 14.27l10.592 2.185.435-2.087-10.591-2.186-.436 2.088zm1.029-4.545l9.452 4.938.995-1.905-9.452-4.938-.995 1.905zm2.342-4.148l7.695 7.425 1.48-1.536-7.695-7.426-1.48 1.537zm3.846-3.15l5.44 9.191 1.839-1.088-5.44-9.192-1.839 1.089zM18.253 0l-1.63 1.38 4.029 4.764 1.63-1.38L18.253 0z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="ml-64 p-8 lg:p-16 max-w-7xl mx-auto transition-all duration-300">
+        <!-- Who Am I Section -->
+        <section id="about" class="min-h-screen flex flex-col justify-center py-20">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold mb-6 w-fit animate-fade-in">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                <span data-i18n="badge_available">Disponible para proyectos</span>
+            </div>
+            <h2 class="text-5xl lg:text-7xl font-bold mb-8 animate-slide-up leading-tight">
+                <span data-i18n="about_title_1">Hola, soy</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">Felix</span>, <br>
+                <span class="text-3xl lg:text-5xl" data-i18n="about_title_2">Full Stack Developer.</span>
+            </h2>
+            <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed animate-fade-in mb-10" data-i18n="about_desc">
+                Me especializo en construir experiencias digitales excepcionales que combinan un diseño impecable con un rendimiento sólido. Mi objetivo es transformar ideas complejas en soluciones sencillas e intuitivas.
+            </p>
+            <div class="flex flex-wrap gap-4 animate-fade-in">
+                <button onclick="toggleModal(true)" class="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20" data-i18n="btn_contact">Contrátame</button>
+                <a href="#projects" class="px-8 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold hover:border-blue-500 transition-all" data-i18n="btn_projects">Ver Proyectos</a>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 border-t border-slate-200 dark:border-slate-800">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                <span class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white"><i data-lucide="briefcase" class="w-5 h-5"></i></span>
+                <span data-i18n="exp_title">Experiencia</span>
+            </h2>
+            
+            <div class="space-y-12">
+                <!-- Exp Item 1 -->
+                <div class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group hover:border-blue-500 transition-colors">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-800 group-hover:bg-blue-500 transition-colors border-4 border-white dark:border-slate-950"></div>
+                    <span class="text-sm font-mono text-blue-600 mb-2 block" data-i18n="exp_date_1">2023 - Presente</span>
+                    <h3 class="text-xl font-bold">Senior Frontend Developer</h3>
+                    <p class="text-slate-500 mb-4">Tech Innovators Corp.</p>
+                    <p class="text-slate-600 dark:text-slate-400 max-w-2xl" data-i18n="exp_desc_1">Liderazgo técnico en la creación de aplicaciones SaaS a gran escala utilizando React y Next.js. Optimización de rendimiento y accesibilidad.</p>
+                </div>
+                <!-- Exp Item 2 -->
+                <div class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group hover:border-blue-500 transition-colors">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-800 group-hover:bg-blue-500 transition-colors border-4 border-white dark:border-slate-950"></div>
+                    <span class="text-sm font-mono text-blue-600 mb-2 block" data-i18n="exp_date_2">2021 - 2023</span>
+                    <h3 class="text-xl font-bold">Full Stack Developer</h3>
+                    <p class="text-slate-500 mb-4">Digital Solutions Ltd.</p>
+                    <p class="text-slate-600 dark:text-slate-400 max-w-2xl" data-i18n="exp_desc_2">Desarrollo de arquitecturas backend robustas con Node.js y bases de datos NoSQL. Implementación de CI/CD.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 border-t border-slate-200 dark:border-slate-800">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                <span class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white"><i data-lucide="code" class="w-5 h-5"></i></span>
+                <span data-i18n="projects_title">Proyectos Destacados</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-blue-500/10 transition-all">
+                    <div class="aspect-video overflow-hidden">
+                        <img src="src/assets/projects/project_dashboard_mockup_1777221266615.png" alt="Project 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">React</span>
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Tailwind</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Nexus Dashboard</h3>
+                        <p class="text-slate-500 text-sm mb-6" data-i18n="p1_desc">Plataforma de análisis de datos en tiempo real con visualizaciones interactivas.</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-blue-600 hover:underline flex items-center gap-1 font-bold text-sm"><i data-lucide="external-link" class="w-4 h-4"></i> Demo</a>
+                            <a href="#" class="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-blue-500/10 transition-all">
+                    <div class="aspect-video overflow-hidden">
+                        <img src="src/assets/projects/project_mobile_app_mockup_1777221281169.png" alt="Project 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">React Native</span>
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Firebase</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">FitFlow App</h3>
+                        <p class="text-slate-500 text-sm mb-6" data-i18n="p2_desc">Aplicación móvil para el seguimiento de rutinas de ejercicio y nutrición personalizada.</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-blue-600 hover:underline flex items-center gap-1 font-bold text-sm"><i data-lucide="external-link" class="w-4 h-4"></i> Store</a>
+                            <a href="#" class="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-blue-500/10 transition-all">
+                    <div class="aspect-video overflow-hidden">
+                        <img src="src/assets/projects/project_ecommerce_mockup_1777221296634.png" alt="Project 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Next.js</span>
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Stripe</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Luxury Watch Store</h3>
+                        <p class="text-slate-500 text-sm mb-6" data-i18n="p3_desc">Experiencia de comercio electrónico de alta gama con pasarela de pagos integrada.</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-blue-600 hover:underline flex items-center gap-1 font-bold text-sm"><i data-lucide="external-link" class="w-4 h-4"></i> Demo</a>
+                            <a href="#" class="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-20 pt-10 border-t border-slate-200 dark:border-slate-800 text-center text-slate-500 dark:text-slate-400 text-sm">
+            <p>© <span id="year"></span> - Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="modal-overlay absolute inset-0 bg-slate-900/40" onclick="toggleModal(false)"></div>
+        <div class="relative bg-white dark:bg-slate-900 w-full max-w-lg mx-4 rounded-[2rem] shadow-2xl p-8 lg:p-12 border border-white/20 transform scale-95 transition-transform duration-300">
+            <button onclick="toggleModal(false)" class="absolute top-6 right-6 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <h2 class="text-3xl font-bold mb-2" data-i18n="contact_title">Hablemos</h2>
+            <p class="text-slate-500 dark:text-slate-400 mb-8" data-i18n="contact_subtitle">Cuéntame sobre tu próximo gran proyecto.</p>
+
+            <form class="flex flex-col gap-4">
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm font-semibold" data-i18n="form_name">Nombre</label>
+                    <input type="text" class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all">
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm font-semibold" data-i18n="form_email">Email</label>
+                    <input type="email" class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all">
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm font-semibold" data-i18n="form_message">Mensaje</label>
+                    <textarea rows="4" class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all resize-none"></textarea>
+                </div>
+                <button type="submit" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-500/30 transition-all transform hover:scale-[1.02]" data-i18n="form_submit">Enviar Mensaje</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Dark Mode Logic
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            const icon = document.getElementById('theme-icon');
+            if (document.documentElement.classList.contains('dark')) {
+                icon.setAttribute('data-lucide', 'sun');
+            } else {
+                icon.setAttribute('data-lucide', 'moon');
+            }
+            lucide.createIcons();
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+
+        // Initialize Theme
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('theme-icon').setAttribute('data-lucide', 'sun');
+            lucide.createIcons();
+        }
+
+        // Language Logic
+        let currentLang = 'es';
+        const translations = {
+            es: {
+                nav_about: 'Quién Soy',
+                nav_exp: 'Experiencia',
+                nav_projects: 'Proyectos',
+                nav_contact: 'Contacto',
+                badge_available: 'Disponible para proyectos',
+                about_title_1: 'Hola, soy',
+                about_title_2: 'Full Stack Developer.',
+                about_desc: 'Me especializo en construir experiencias digitales excepcionales que combinan un diseño impecable con un rendimiento sólido. Mi objetivo es transformar ideas complejas en soluciones sencillas e intuitivas.',
+                btn_contact: 'Contrátame',
+                btn_projects: 'Ver Proyectos',
+                exp_title: 'Experiencia',
+                exp_date_1: '2023 - Presente',
+                exp_desc_1: 'Liderazgo técnico en la creación de aplicaciones SaaS a gran escala utilizando React y Next.js. Optimización de rendimiento y accesibilidad.',
+                exp_date_2: '2021 - 2023',
+                exp_desc_2: 'Desarrollo de arquitecturas backend robustas con Node.js y bases de datos NoSQL. Implementación de CI/CD.',
+                projects_title: 'Proyectos Destacados',
+                p1_desc: 'Plataforma de análisis de datos en tiempo real con visualizaciones interactivas.',
+                p2_desc: 'Aplicación móvil para el seguimiento de rutinas de ejercicio y nutrición personalizada.',
+                p3_desc: 'Experiencia de comercio electrónico de alta gama con pasarela de pagos integrada.',
+                contact_title: 'Hablemos',
+                contact_subtitle: 'Cuéntame sobre tu próximo gran proyecto.',
+                form_name: 'Nombre',
+                form_email: 'Email',
+                form_message: 'Mensaje',
+                form_submit: 'Enviar Mensaje'
+            },
+            en: {
+                nav_about: 'About Me',
+                nav_exp: 'Experience',
+                nav_projects: 'Projects',
+                nav_contact: 'Contact',
+                badge_available: 'Available for hire',
+                about_title_1: 'Hi, I am',
+                about_title_2: 'Full Stack Developer.',
+                about_desc: 'I specialize in building exceptional digital experiences that combine flawless design with solid performance. My goal is to transform complex ideas into simple and intuitive solutions.',
+                btn_contact: 'Hire Me',
+                btn_projects: 'View Projects',
+                exp_title: 'Experience',
+                exp_date_1: '2023 - Present',
+                exp_desc_1: 'Technical leadership in creating large-scale SaaS applications using React and Next.js. Performance and accessibility optimization.',
+                exp_date_2: '2021 - 2023',
+                exp_desc_2: 'Development of robust backend architectures with Node.js and NoSQL databases. CI/CD implementation.',
+                projects_title: 'Featured Projects',
+                p1_desc: 'Real-time data analytics platform with interactive visualizations.',
+                p2_desc: 'Mobile application for tracking fitness routines and personalized nutrition.',
+                p3_desc: 'High-end e-commerce experience with integrated payment gateway.',
+                contact_title: 'Let\'s Talk',
+                contact_subtitle: 'Tell me about your next big project.',
+                form_name: 'Name',
+                form_email: 'Email',
+                form_message: 'Message',
+                form_submit: 'Send Message'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            document.getElementById('lang-text').innerText = currentLang.toUpperCase();
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                el.innerHTML = translations[currentLang][key];
+            });
+        }
+
+        // Modal Logic
+        function toggleModal(show) {
+            const modal = document.getElementById('contact-modal');
+            const content = modal.querySelector('.relative');
+            if (show) {
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0', 'pointer-events-none');
+                    content.classList.remove('scale-95');
+                }, 10);
+            } else {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                content.classList.add('scale-95');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // Set current year
+        document.getElementById('year').innerText = new Date().getFullYear();
+    </script>
+</body>
+</html>
