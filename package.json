@@ -1,0 +1,28 @@
+{
+  "name": "mi_portafolio",
+  "version": "1.0.0",
+  "description": "Este es mi portafolio profesional, diseñado para ofrecer una experiencia premium y moderna, destacando mis habilidades y proyectos en el ecosistema Android.",
+  "main": "script.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./input.css -o ./style_tailwind.css --minify",
+    "watch": "npx tailwindcss -i ./input.css -o ./style_tailwind.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cordobot/mi_portafolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Cordobot/mi_portafolio/issues"
+  },
+  "homepage": "https://github.com/Cordobot/mi_portafolio#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.4",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.12",
+    "tailwindcss": "^4.2.4"
+  }
+}
