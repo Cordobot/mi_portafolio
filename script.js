@@ -177,16 +177,15 @@ function createFragments() {
         "lifecycleScope"
     ];
 
+    const fragment = document.createDocumentFragment();
     for (let i = 0; i < 50; i++) {
         const span = document.createElement('span');
         span.className = 'intro-fragment';
         span.textContent = snippets[Math.floor(Math.random() * snippets.length)];
         
-        // Random colors
         const colors = ['#3b82f6', '#22d3ee', '#a855f7', '#4ade80'];
         span.style.color = colors[Math.floor(Math.random() * colors.length)];
         
-        // Random positions for a "Matrix/Nebula" feel
         const startX = Math.random() * 100 + "vw";
         const startY = Math.random() * 100 + "vh";
         const endX = (Math.random() * 80 + 10) + "vw";
@@ -204,8 +203,9 @@ function createFragments() {
         span.style.fontSize = (Math.random() * 0.4 + 0.4) + "rem";
         span.style.opacity = Math.random() * 0.5 + 0.2;
         
-        container.appendChild(span);
+        fragment.appendChild(span);
     }
+    container.appendChild(fragment);
 }
 
 // Language Logic
@@ -263,13 +263,20 @@ function initTypewriter() {
 // Scroll Logic
 function initScrollToTop() {
     const btn = document.getElementById('scroll-to-top');
+    let ticking = false;
     window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            btn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
-            btn.classList.add('opacity-100', 'translate-y-0');
-        } else {
-            btn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
-            btn.classList.remove('opacity-100', 'translate-y-0');
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                if (window.pageYOffset > 300) {
+                    btn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
+                    btn.classList.add('opacity-100', 'translate-y-0');
+                } else {
+                    btn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
+                    btn.classList.remove('opacity-100', 'translate-y-0');
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
     });
     
