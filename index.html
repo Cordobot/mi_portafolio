@@ -162,7 +162,7 @@
             <!-- CV Download -->
             <div class="py-4 border-y border-slate-100 dark:border-slate-800 my-2">
                 <button
-                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white transition-all group font-bold shadow-sm">
+                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white transition-all group font-bold shadow-sm cursor-pointer">
                     <i data-lucide="download" class="w-5 h-5 group-hover:bounce-custom transition-transform"></i>
                     <span data-i18n="nav_cv">Descargar CV</span>
                 </button>
@@ -174,12 +174,12 @@
             <div
                 class="flex items-center justify-around bg-slate-200 dark:bg-slate-800/80 p-2 rounded-2xl border-2 border-slate-300 dark:border-slate-700 shadow-sm transition-all">
                 <button onclick="toggleDarkMode()" aria-label="Cambiar tema"
-                    class="p-2 rounded-xl bg-white dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all shadow-sm group">
+                    class="p-2 rounded-xl bg-white dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all shadow-sm group cursor-pointer">
                     <i data-lucide="moon" id="theme-icon"
                         class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
                 </button>
                 <button onclick="toggleLanguage()" aria-label="Cambiar idioma"
-                    class="p-2 rounded-xl bg-white dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all shadow-sm font-bold text-xs uppercase group">
+                    class="p-2 rounded-xl bg-white dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all shadow-sm font-bold text-xs uppercase group cursor-pointer">
                     <span id="lang-text" class="group-hover:scale-110 transition-transform inline-block">ES</span>
                 </button>
             </div>
@@ -233,25 +233,7 @@
             <section id="about"
                 class="min-h-screen flex flex-col lg:flex-row items-center justify-between py-20 gap-12 relative">
 
-                <!-- Floating Contact Button (Desktop) -->
-                <div class="fixed top-8 right-8 z-[60] hidden lg:block">
-                    <button onclick="toggleModal(true)" class="relative group">
-                        <div
-                            class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-pulse">
-                        </div>
-                        <div
-                            class="relative px-8 py-4 bg-white dark:bg-slate-900 rounded-2xl leading-none flex items-center gap-3 border border-slate-200 dark:border-slate-800 shadow-xl">
-                            <span class="flex h-3 w-3">
-                                <span
-                                    class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-blue-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
-                            </span>
-                            <span class="text-slate-800 dark:text-white font-bold"
-                                data-i18n="nav_contact">Contacto</span>
-                            <i data-lucide="mail" class="text-blue-500 w-4.5 h-4.5"></i>
-                        </div>
-                    </button>
-                </div>
+                <!-- Hero Content Start -->
 
                 <div class="flex-1">
                     <div
@@ -289,7 +271,7 @@
 
                     <div class="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:gap-4">
                         <button onclick="toggleModal(true)"
-                            class="px-4 py-3 md:px-8 md:py-4 bg-blue-600 text-white rounded-2xl font-bold text-sm md:text-base hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20"
+                            class="px-4 py-3 md:px-8 md:py-4 bg-blue-600 text-white rounded-2xl font-bold text-sm md:text-base hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 cursor-pointer"
                             data-i18n="btn_contact">Contrátame</button>
                         <a href="#projects"
                             class="px-4 py-3 md:px-8 md:py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold text-sm md:text-base text-center hover:border-blue-500 transition-all"
@@ -681,9 +663,28 @@
         </div>
     </main>
 
+    <!-- Floating Contact Button (Universal) -->
+    <div id="floating-contact"
+        class="fixed top-8 right-8 z-[60] transition-all duration-500 opacity-100 pointer-events-auto">
+        <button onclick="toggleModal(true)" class="relative group cursor-pointer">
+            <div
+                class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-pulse">
+            </div>
+            <div
+                class="relative px-6 py-3 bg-white dark:bg-slate-900 rounded-2xl leading-none flex items-center gap-3 border border-slate-200 dark:border-slate-800 shadow-xl">
+                <span class="flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                <span class="text-slate-800 dark:text-white font-bold text-sm" data-i18n="nav_contact">Contacto</span>
+                <i data-lucide="mail" class="text-blue-500 w-4 h-4"></i>
+            </div>
+        </button>
+    </div>
+
     <!-- Scroll to Top -->
     <button id="scroll-to-top"
-        class="fixed bottom-8 right-8 z-[60] p-4 bg-blue-600 text-white rounded-full shadow-2xl hover:bg-blue-700 transition-all border-4 border-white dark:border-slate-950 group opacity-0 pointer-events-none translate-y-10"
+        class="fixed bottom-8 right-8 z-[60] p-4 bg-blue-600 text-white rounded-full shadow-2xl hover:bg-blue-700 transition-all border-4 border-white dark:border-slate-950 group opacity-0 pointer-events-none translate-y-10 cursor-pointer"
         aria-label="Scroll to top">
         <i data-lucide="triangle" class="w-6 h-6 fill-current"></i>
     </button>

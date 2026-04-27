@@ -272,6 +272,7 @@ function initTypewriter() {
 // Scroll Logic
 function initScrollToTop() {
     const btn = document.getElementById('scroll-to-top');
+    const contactBtn = document.getElementById('floating-contact');
     let ticking = false;
     window.addEventListener('scroll', () => {
         if (!ticking) {
@@ -279,9 +280,17 @@ function initScrollToTop() {
                 if (window.pageYOffset > 300) {
                     btn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
                     btn.classList.add('opacity-100', 'translate-y-0');
+                    
+                    // Move Contact to Bottom-Left of the scroll button
+                    contactBtn.classList.remove('top-8', 'right-8', 'opacity-0');
+                    contactBtn.classList.add('bottom-8', 'right-28', 'opacity-100', 'translate-y-0');
                 } else {
                     btn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
                     btn.classList.remove('opacity-100', 'translate-y-0');
+                    
+                    // Move Contact back to Top-Right
+                    contactBtn.classList.remove('bottom-8', 'right-28', 'translate-y-0');
+                    contactBtn.classList.add('top-8', 'right-8', 'opacity-100');
                 }
                 ticking = false;
             });
