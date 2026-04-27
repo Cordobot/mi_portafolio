@@ -47,7 +47,8 @@ const translations = {
         spec_2: "UI Declarativa (Compose)",
         spec_3: "Consumo de APIs REST",
         spec_4: "Persistencia de Datos (Room)",
-        spec_5: "Testing (JUnit)"
+        spec_5: "Testing (JUnit)",
+        btn_view_github: "Ver en GitHub"
     },
     en: {
         nav_about: "About Me",
@@ -97,7 +98,8 @@ const translations = {
         spec_2: "Declarative UI (Compose)",
         spec_3: "REST API Consumption",
         spec_4: "Data Persistence (Room)",
-        spec_5: "Testing (JUnit)"
+        spec_5: "Testing (JUnit)",
+        btn_view_github: "View on GitHub"
     }
 };
 
