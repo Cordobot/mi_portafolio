@@ -4,8 +4,8 @@
   "description": "Este es mi portafolio profesional, diseñado para ofrecer una experiencia premium y moderna, destacando mis habilidades y proyectos en el ecosistema Android.",
   "main": "script.js",
   "scripts": {
-    "build": "npx tailwindcss -i ./input.css -o ./style_tailwind.css --minify",
-    "watch": "npx tailwindcss -i ./input.css -o ./style_tailwind.css --watch"
+    "build": "tailwindcss -i ./input.css -o ./style_tailwind.css --minify",
+    "watch": "tailwindcss -i ./input.css -o ./style_tailwind.css --watch"
   },
   "repository": {
     "type": "git",
