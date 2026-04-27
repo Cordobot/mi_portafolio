@@ -11,3 +11,19 @@
   from { transform: rotate(360deg); }
   to { transform: rotate(0deg); }
 }
+
+.btn-github {
+    @apply inline-flex flex-row items-center justify-center gap-2 px-8 py-3 text-white font-bold transition-all duration-300 border border-white/5;
+    background-color: #1e293b !important; /* Slate 800 */
+    border-radius: 1rem !important; /* rounded-2xl */
+}
+
+.btn-github:hover {
+    @apply !bg-blue-600;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+}
+
+.btn-github span {
+    color: white !important;
+}
