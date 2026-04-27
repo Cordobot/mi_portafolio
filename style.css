@@ -148,7 +148,16 @@ body {
 }
 
 .animate-spin-reverse {
-    animation: spin-reverse linear infinite;
+    animation: spin-reverse 2s linear infinite;
+}
+
+.animate-spin-slow {
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 /* Floating Code Fragments */
@@ -170,6 +179,7 @@ body {
 #intro-name, #intro-sub {
     display: inline-block;
     will-change: transform;
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 @keyframes fragment-move {
