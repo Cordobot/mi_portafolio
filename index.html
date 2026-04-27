@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adrián Alvarez | Android Developer Portfolio</title>
-    <meta name="description" content="Portfolio profesional de Adrián Alvarez, Android Developer especializado en Kotlin y Jetpack Compose.">
-    
+    <meta name="description"
+        content="Portfolio profesional de Adrián Alvarez, Android Developer especializado en Kotlin y Jetpack Compose.">
+
     <!-- Tailwind CSS -->
     <link href="./style_tailwind.css" rel="stylesheet">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- Google Fonts Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://api.dicebear.com">
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
-    
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
+        media="print" onload="this.media='all'">
+
     <!-- Scripts (Deferred) -->
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <script src="script.js" defer></script>
-    
+
     <!-- Preload LCP Image -->
     <link rel="preload" as="image" href="assets/hero_avatar.webp" fetchpriority="high">
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-hidden">
+
+<body
+    class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-hidden">
 
     <!-- Unique Portal Intro Animation -->
     <div id="intro-loader" class="fixed inset-0 z-[200] flex items-center justify-center bg-slate-950 overflow-hidden">
@@ -34,35 +40,48 @@
         <div class="absolute inset-0 pointer-events-none">
             <div id="intro-fragments" class="absolute inset-0 overflow-hidden opacity-30"></div>
             <!-- More Colorful Orbs -->
-            <div class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-blue-600/20 rounded-full blur-[100px] animate-pulse"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[100px] animate-pulse delay-1000"></div>
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-400/10 rounded-full blur-[120px] animate-pulse delay-500"></div>
-            <div class="absolute top-0 right-0 w-[300px] h-[300px] bg-green-500/5 rounded-full blur-[80px] animate-pulse delay-1500"></div>
+            <div
+                class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-blue-600/20 rounded-full blur-[100px] animate-pulse">
+            </div>
+            <div
+                class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[100px] animate-pulse delay-1000">
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-400/10 rounded-full blur-[120px] animate-pulse delay-500">
+            </div>
+            <div
+                class="absolute top-0 right-0 w-[300px] h-[300px] bg-green-500/5 rounded-full blur-[80px] animate-pulse delay-1500">
+            </div>
         </div>
 
         <div class="relative flex flex-col items-center">
             <!-- Animated Portal Circle -->
-            <div id="intro-portal" class="relative w-32 h-32 md:w-48 h-48 border border-white/10 rounded-full flex items-center justify-center transition-all duration-1000 scale-0 opacity-0 group">
+            <div id="intro-portal"
+                class="relative w-32 h-32 md:w-48 h-48 border border-white/10 rounded-full flex items-center justify-center transition-all duration-1000 scale-0 opacity-0 group">
                 <!-- Spinning Rings -->
                 <div class="absolute inset-0 border-t-2 border-blue-500 rounded-full animate-spin-slow"></div>
                 <div class="absolute inset-2 border-b-2 border-cyan-400 rounded-full animate-spin-reverse"></div>
-                
+
                 <!-- Logo -->
                 <span class="text-5xl md:text-7xl font-black text-white select-none z-10">AA</span>
-                
+
                 <!-- Inner Glow -->
-                <div class="absolute inset-0 bg-blue-500/20 rounded-full blur-xl scale-0 group-active:scale-100 transition-transform"></div>
+                <div
+                    class="absolute inset-0 bg-blue-500/20 rounded-full blur-xl scale-0 group-active:scale-100 transition-transform">
+                </div>
             </div>
-            
+
             <!-- Staggered Text Reveal -->
             <div class="mt-12 flex flex-col items-center gap-2">
                 <div class="relative overflow-hidden h-12 md:h-16">
-                    <h2 id="intro-name" class="text-3xl md:text-5xl font-black text-white tracking-[0.4em] translate-y-[150%] opacity-0 transition-all duration-1000 ease-out">
+                    <h2 id="intro-name"
+                        class="text-3xl md:text-5xl font-black text-white tracking-[0.4em] translate-y-[150%] opacity-0 transition-all duration-1000 ease-out">
                         ADRIÁN ALVAREZ
                     </h2>
                 </div>
                 <div class="relative overflow-hidden h-6">
-                    <p id="intro-sub" class="text-blue-400 font-mono text-sm tracking-[0.2em] translate-y-[150%] opacity-0 transition-all duration-1000 delay-300 ease-out">
+                    <p id="intro-sub"
+                        class="text-blue-400 font-mono text-sm tracking-[0.2em] translate-y-[150%] opacity-0 transition-all duration-1000 delay-300 ease-out">
                         ANDROID DEVELOPER
                     </p>
                 </div>
@@ -71,54 +90,69 @@
     </div>
 
     <!-- Mobile Hamburger Button -->
-    <button onclick="toggleMobileMenu()" aria-label="Menu" class="lg:hidden fixed top-6 left-6 z-[110] p-3 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl text-blue-600">
+    <button onclick="toggleMobileMenu()" aria-label="Menu"
+        class="lg:hidden fixed top-6 left-6 z-[110] p-3 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl text-blue-600">
         <i data-lucide="menu" id="menu-icon"></i>
     </button>
 
     <!-- Mobile Overlay -->
-    <div id="mobile-overlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[90] hidden" onclick="toggleMobileMenu()"></div>
+    <div id="mobile-overlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[90] hidden"
+        onclick="toggleMobileMenu()"></div>
 
     <!-- Background Waves -->
     <div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden opacity-20 dark:opacity-10">
         <svg class="absolute bottom-0 w-[200%] h-full animate-wave" viewBox="0 0 120 28" preserveAspectRatio="none">
-            <path d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" fill="currentColor" class="text-blue-500" />
+            <path d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" fill="currentColor"
+                class="text-blue-500" />
         </svg>
     </div>
 
     <!-- Vertical Navbar -->
-    <nav id="navbar" class="fixed left-0 top-0 h-screen w-64 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between p-8 z-[100] transition-transform duration-500 ease-in-out lg:translate-x-0 overflow-y-auto">
+    <nav id="navbar"
+        class="fixed left-0 top-0 h-screen w-64 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between p-8 z-[100] transition-transform duration-500 ease-in-out lg:translate-x-0 overflow-y-auto">
         <div class="flex flex-col gap-8">
             <!-- Profile -->
             <div class="flex flex-col items-center gap-4">
-                <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-blue-500 to-cyan-400 p-1 shadow-lg shadow-blue-500/20">
-                    <img src="assets/Perfil_navbar.webp" alt="Adrián Alvarez" class="w-full h-full rounded-full object-cover bg-white dark:bg-slate-800">
+                <div
+                    class="w-20 h-20 rounded-full bg-gradient-to-tr from-blue-500 to-cyan-400 p-1 shadow-lg shadow-blue-500/20">
+                    <img src="assets/Perfil_navbar.webp" alt="Adrián Alvarez"
+                        class="w-full h-full rounded-full object-cover bg-white dark:bg-slate-800">
                 </div>
                 <h1 class="text-xl font-bold tracking-tight text-center">Adrián Alvarez</h1>
-                <p class="text-[10px] text-slate-600 dark:text-slate-300 font-mono text-center break-all">Adnalvarez95@gmail.com</p>
+                <p class="text-[10px] text-slate-600 dark:text-slate-300 font-mono text-center break-all">
+                    Adnalvarez95@gmail.com</p>
             </div>
 
             <!-- Nav Links -->
             <ul class="flex flex-col gap-2">
                 <li>
-                    <a href="#about" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-600 hover:text-white dark:hover:bg-blue-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-blue-500/30" onclick="if(window.innerWidth < 1024) toggleMobileMenu()">
+                    <a href="#about"
+                        class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-600 hover:text-white dark:hover:bg-blue-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-blue-500/30"
+                        onclick="if(window.innerWidth < 1024) toggleMobileMenu()">
                         <i data-lucide="user" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
                         <span data-i18n="nav_about">Quién Soy</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#tech" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-600 hover:text-white dark:hover:bg-blue-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-blue-500/30" onclick="if(window.innerWidth < 1024) toggleMobileMenu()">
+                    <a href="#tech"
+                        class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-600 hover:text-white dark:hover:bg-blue-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-blue-500/30"
+                        onclick="if(window.innerWidth < 1024) toggleMobileMenu()">
                         <i data-lucide="cpu" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
                         <span data-i18n="nav_tech">Tecnologías</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#experience" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-600 hover:text-white dark:hover:bg-blue-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-blue-500/30" onclick="if(window.innerWidth < 1024) toggleMobileMenu()">
+                    <a href="#experience"
+                        class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-600 hover:text-white dark:hover:bg-blue-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-blue-500/30"
+                        onclick="if(window.innerWidth < 1024) toggleMobileMenu()">
                         <i data-lucide="briefcase" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
                         <span data-i18n="nav_exp">Experiencia</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#projects" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-600 hover:text-white dark:hover:bg-blue-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-blue-500/30" onclick="if(window.innerWidth < 1024) toggleMobileMenu()">
+                    <a href="#projects"
+                        class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-600 hover:text-white dark:hover:bg-blue-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-blue-500/30"
+                        onclick="if(window.innerWidth < 1024) toggleMobileMenu()">
                         <i data-lucide="code" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
                         <span data-i18n="nav_projects">Proyectos</span>
                     </a>
@@ -127,7 +161,8 @@
 
             <!-- CV Download -->
             <div class="py-4 border-y border-slate-100 dark:border-slate-800 my-2">
-                <button class="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white transition-all group font-bold shadow-sm">
+                <button
+                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white transition-all group font-bold shadow-sm">
                     <i data-lucide="download" class="w-5 h-5 group-hover:bounce-custom transition-transform"></i>
                     <span data-i18n="nav_cv">Descargar CV</span>
                 </button>
@@ -136,24 +171,55 @@
 
         <!-- Toggles & Social -->
         <div class="flex flex-col gap-6 mt-auto">
-            <div class="flex items-center justify-around bg-slate-200 dark:bg-slate-800/80 p-2 rounded-2xl border-2 border-slate-300 dark:border-slate-700 shadow-sm transition-all">
-                <button onclick="toggleDarkMode()" aria-label="Cambiar tema" class="p-2 rounded-xl bg-white dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all shadow-sm group">
-                    <i data-lucide="moon" id="theme-icon" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+            <div
+                class="flex items-center justify-around bg-slate-200 dark:bg-slate-800/80 p-2 rounded-2xl border-2 border-slate-300 dark:border-slate-700 shadow-sm transition-all">
+                <button onclick="toggleDarkMode()" aria-label="Cambiar tema"
+                    class="p-2 rounded-xl bg-white dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all shadow-sm group">
+                    <i data-lucide="moon" id="theme-icon"
+                        class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
                 </button>
-                <button onclick="toggleLanguage()" aria-label="Cambiar idioma" class="p-2 rounded-xl bg-white dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all shadow-sm font-bold text-xs uppercase group">
+                <button onclick="toggleLanguage()" aria-label="Cambiar idioma"
+                    class="p-2 rounded-xl bg-white dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all shadow-sm font-bold text-xs uppercase group">
                     <span id="lang-text" class="group-hover:scale-110 transition-transform inline-block">ES</span>
                 </button>
             </div>
 
             <div class="flex justify-center items-center gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
-                <a href="https://github.com/Cordobot" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 transition-all shadow-sm" aria-label="Github">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                <a href="https://github.com/Cordobot" target="_blank" rel="noopener noreferrer"
+                    class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 transition-all shadow-sm"
+                    aria-label="Github">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-github">
+                        <path
+                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                    </svg>
                 </a>
-                <a href="https://www.linkedin.com/in/adnalvarez" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-blue-600 hover:bg-white dark:hover:bg-slate-700 transition-all shadow-sm" aria-label="Linkedin">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                <a href="https://www.linkedin.com/in/adnalvarez" target="_blank" rel="noopener noreferrer"
+                    class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-blue-600 hover:bg-white dark:hover:bg-slate-700 transition-all shadow-sm"
+                    aria-label="Linkedin">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-linkedin">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect width="4" height="12" x="2" y="9" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
                 </a>
-                <a href="https://stackoverflow.com/users/15427986/adnalvarez" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-[#F48024] hover:bg-white dark:hover:bg-slate-700 transition-all shadow-sm" aria-label="Stack Overflow">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stack-overflow"><path d="m14.8 19.2 1.1-7.3-3.2-.5-1.1 7.3 3.2.5Z"/><path d="M10.7 17 13 11l-3-1.1-2.3 6 3 1.1Z"/><path d="m6.6 13.1 3.7-4.6-2.5-2-3.7 4.6 2.5 2Z"/><path d="m2.3 8.1 4.7-3.6-1.9-2.5-4.7 3.6 1.9 2.5Z"/><path d="M20 11V2H4v9"/><path d="M4 11v11h16V11"/></svg>
+                <a href="https://stackoverflow.com/users/15427986/adnalvarez" target="_blank" rel="noopener noreferrer"
+                    class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-[#F48024] hover:bg-white dark:hover:bg-slate-700 transition-all shadow-sm"
+                    aria-label="Stack Overflow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-stack-overflow">
+                        <path d="m14.8 19.2 1.1-7.3-3.2-.5-1.1 7.3 3.2.5Z" />
+                        <path d="M10.7 17 13 11l-3-1.1-2.3 6 3 1.1Z" />
+                        <path d="m6.6 13.1 3.7-4.6-2.5-2-3.7 4.6 2.5 2Z" />
+                        <path d="m2.3 8.1 4.7-3.6-1.9-2.5-4.7 3.6 1.9 2.5Z" />
+                        <path d="M20 11V2H4v9" />
+                        <path d="M4 11v11h16V11" />
+                    </svg>
                 </a>
             </div>
         </div>
@@ -162,354 +228,533 @@
     <!-- Main Content -->
     <main class="lg:ml-64 p-8 lg:p-16 transition-all duration-300">
         <div class="max-w-6xl mx-auto">
-        
-        <!-- Hero Section -->
-        <section id="about" class="min-h-screen flex flex-col lg:flex-row items-center justify-between py-20 gap-12 relative">
-            
-            <!-- Floating Contact Button (Desktop) -->
-            <div class="fixed top-8 right-8 z-[60] hidden lg:block">
-                <button onclick="toggleModal(true)" class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-                    <div class="relative px-8 py-4 bg-white dark:bg-slate-900 rounded-2xl leading-none flex items-center gap-3 border border-slate-200 dark:border-slate-800 shadow-xl">
-                        <span class="flex h-3 w-3">
-                            <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-blue-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
-                        </span>
-                        <span class="text-slate-800 dark:text-white font-bold" data-i18n="nav_contact">Contacto</span>
-                        <i data-lucide="mail" class="text-blue-500 w-4.5 h-4.5"></i>
-                    </div>
-                </button>
-            </div>
 
-            <div class="flex-1">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold mb-6 w-fit">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                    </span>
-                    <span data-i18n="badge_available">Disponible para proyectos Android</span>
+            <!-- Hero Section -->
+            <section id="about"
+                class="min-h-screen flex flex-col lg:flex-row items-center justify-between py-20 gap-12 relative">
+
+                <!-- Floating Contact Button (Desktop) -->
+                <div class="fixed top-8 right-8 z-[60] hidden lg:block">
+                    <button onclick="toggleModal(true)" class="relative group">
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-pulse">
+                        </div>
+                        <div
+                            class="relative px-8 py-4 bg-white dark:bg-slate-900 rounded-2xl leading-none flex items-center gap-3 border border-slate-200 dark:border-slate-800 shadow-xl">
+                            <span class="flex h-3 w-3">
+                                <span
+                                    class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-blue-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                            </span>
+                            <span class="text-slate-800 dark:text-white font-bold"
+                                data-i18n="nav_contact">Contacto</span>
+                            <i data-lucide="mail" class="text-blue-500 w-4.5 h-4.5"></i>
+                        </div>
+                    </button>
                 </div>
 
-                <h2 class="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
-                    <span data-i18n="about_title_1">Hola, soy</span> <br />
-                    <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400 inline-block relative">Adrián Alvarez</span>
-                    <span class="typewriter-cursor inline-block w-1 h-12 lg:h-16 bg-blue-600 ml-1 align-middle"></span>
-                    <br />
-                    <span class="text-3xl lg:text-5xl" data-i18n="about_title_2">Android Developer.</span>
+                <div class="flex-1">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold mb-6 w-fit">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                        </span>
+                        <span data-i18n="badge_available">Disponible para proyectos Android</span>
+                    </div>
+
+                    <h2 class="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
+                        <span data-i18n="about_title_1">Hola, soy</span> <br />
+                        <span id="typewriter"
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400 inline-block relative">Adrián
+                            Alvarez</span>
+                        <span
+                            class="typewriter-cursor inline-block w-1 h-12 lg:h-16 bg-blue-600 ml-1 align-middle"></span>
+                        <br />
+                        <span class="text-3xl lg:text-5xl" data-i18n="about_title_2">Android Developer.</span>
+                    </h2>
+
+                    <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed mb-6"
+                        data-i18n="about_desc">
+                        Ingeniero de Software enfocado en el desarrollo de aplicaciones móviles eficientes, modernas y
+                        escalables. Especialista en el ecosistema Android con Kotlin y arquitecturas robustas.
+                    </p>
+
+                    <p class="flex items-center gap-2 text-slate-600 dark:text-slate-300 mb-10 font-medium">
+                        <i data-lucide="map-pin" class="w-4.5 h-4.5 text-blue-500"></i> Medellín, Colombia
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="toggleModal(true)"
+                            class="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20"
+                            data-i18n="btn_contact">Contrátame</button>
+                        <a href="#projects"
+                            class="px-8 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold hover:border-blue-500 transition-all"
+                            data-i18n="btn_projects">Ver Proyectos</a>
+                    </div>
+                </div>
+
+                <div class="flex-1 flex justify-center">
+                    <div
+                        class="relative w-full max-w-md aspect-square rounded-[3rem] overflow-hidden bg-gradient-to-br from-blue-500/20 to-cyan-400/20 border border-white/20 backdrop-blur-sm shadow-2xl animate-float">
+                        <img src="assets/hero_avatar.webp" alt="Android Developer Avatar" fetchpriority="high"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="absolute bottom-6 right-6 p-4 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20">
+                            <i data-lucide="smartphone" class="text-white w-8 h-8"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tech Stack Section -->
+            <section id="tech" class="py-20 border-t border-slate-200 dark:border-slate-800">
+                <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white"><i
+                            data-lucide="cpu" class="w-5 h-5"></i></span>
+                    <span data-i18n="tech_title">Stack Tecnológico</span>
                 </h2>
 
-                <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed mb-6" data-i18n="about_desc">
-                    Ingeniero de Software enfocado en el desarrollo de aplicaciones móviles eficientes, modernas y escalables. Especialista en el ecosistema Android con Kotlin y arquitecturas robustas.
-                </p>
-                
-                <p class="flex items-center gap-2 text-slate-600 dark:text-slate-300 mb-10 font-medium">
-                    <i data-lucide="map-pin" class="w-4.5 h-4.5 text-blue-500"></i> Medellín, Colombia
-                </p>
-                
-                <div class="flex flex-wrap gap-4">
-                    <button onclick="toggleModal(true)" class="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20" data-i18n="btn_contact">Contrátame</button>
-                    <a href="#projects" class="px-8 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold hover:border-blue-500 transition-all" data-i18n="btn_projects">Ver Proyectos</a>
-                </div>
-            </div>
-            
-            <div class="flex-1 flex justify-center">
-                <div class="relative w-full max-w-md aspect-square rounded-[3rem] overflow-hidden bg-gradient-to-br from-blue-500/20 to-cyan-400/20 border border-white/20 backdrop-blur-sm shadow-2xl animate-float">
-                    <img src="assets/hero_avatar.webp" alt="Android Developer Avatar" fetchpriority="high" class="w-full h-full object-cover">
-                    <div class="absolute bottom-6 right-6 p-4 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20">
-                        <i data-lucide="smartphone" class="text-white w-8 h-8"></i>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-16">
+                    <!-- Tech Items -->
+                    <div
+                        class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
+                        <div class="tech-tooltip">Kotlin - Experto</div>
+                        <div class="text-purple-500 group-hover:scale-110 transition-transform"><i data-lucide="zap"
+                                class="w-10 h-10"></i></div>
+                        <span class="text-sm font-bold">Kotlin</span>
+                    </div>
+                    <div
+                        class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
+                        <div class="tech-tooltip">Jetpack Compose - Avanzado</div>
+                        <div class="text-green-500 group-hover:scale-110 transition-transform"><i data-lucide="layout"
+                                class="w-10 h-10"></i></div>
+                        <span class="text-sm font-bold">Compose</span>
+                    </div>
+                    <div
+                        class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
+                        <div class="tech-tooltip">Android SDK - Avanzado</div>
+                        <div class="text-green-600 group-hover:scale-110 transition-transform"><i
+                                data-lucide="smartphone" class="w-10 h-10"></i></div>
+                        <span class="text-sm font-bold">Android SDK</span>
+                    </div>
+                    <div
+                        class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
+                        <div class="tech-tooltip">Coroutines - Avanzado</div>
+                        <div class="text-blue-500 group-hover:scale-110 transition-transform"><i data-lucide="zap"
+                                class="w-10 h-10"></i></div>
+                        <span class="text-sm font-bold">Coroutines</span>
+                    </div>
+                    <div
+                        class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
+                        <div class="tech-tooltip">Flow / StateFlow - Avanzado</div>
+                        <div class="text-cyan-500 group-hover:scale-110 transition-transform"><i data-lucide="activity"
+                                class="w-10 h-10"></i></div>
+                        <span class="text-sm font-bold">Flow</span>
+                    </div>
+                    <div
+                        class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
+                        <div class="tech-tooltip">Clean Architecture - Avanzado</div>
+                        <div class="text-blue-600 group-hover:scale-110 transition-transform"><i data-lucide="code-2"
+                                class="w-10 h-10"></i></div>
+                        <span class="text-sm font-bold">Clean Arch</span>
+                    </div>
+                    <div
+                        class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
+                        <div class="tech-tooltip">MVVM - Avanzado</div>
+                        <div class="text-indigo-400 group-hover:scale-110 transition-transform"><i data-lucide="box"
+                                class="w-10 h-10"></i></div>
+                        <span class="text-sm font-bold">MVVM</span>
+                    </div>
+                    <div
+                        class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
+                        <div class="tech-tooltip">Hilt / Dagger - Avanzado</div>
+                        <div class="text-yellow-600 group-hover:scale-110 transition-transform"><i data-lucide="layers"
+                                class="w-10 h-10"></i></div>
+                        <span class="text-sm font-bold">Hilt</span>
+                    </div>
+                    <div
+                        class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
+                        <div class="tech-tooltip">Room Database - Avanzado</div>
+                        <div class="text-slate-400 group-hover:scale-110 transition-transform"><i data-lucide="database"
+                                class="w-10 h-10"></i></div>
+                        <span class="text-sm font-bold">Room</span>
+                    </div>
+                    <div
+                        class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
+                        <div class="tech-tooltip">Firebase - Intermedio</div>
+                        <div class="text-orange-500 group-hover:scale-110 transition-transform"><i data-lucide="flame"
+                                class="w-10 h-10"></i></div>
+                        <span class="text-sm font-bold">Firebase</span>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Tech Stack Section -->
-        <section id="tech" class="py-20 border-t border-slate-200 dark:border-slate-800">
-            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
-                <span class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white"><i data-lucide="cpu" class="w-5 h-5"></i></span>
-                <span data-i18n="tech_title">Stack Tecnológico</span>
-            </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div
+                        class="p-8 bg-blue-50 dark:bg-blue-900/10 rounded-[2rem] border border-blue-100 dark:border-blue-800">
+                        <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i data-lucide="check-circle"
+                                class="text-blue-500"></i><span data-i18n="specialties_title">Especialidades</span></h3>
+                        <ul class="space-y-4 text-slate-600 dark:text-slate-400 text-lg">
+                            <li class="flex items-center gap-3"><span
+                                    class="w-2 h-2 rounded-full bg-blue-500"></span><span data-i18n="spec_1">Desarrollo
+                                    Android Nativo</span></li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-2 h-2 rounded-full bg-blue-500"></span><span data-i18n="spec_2">UI
+                                    Declarativa (Compose)</span></li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-2 h-2 rounded-full bg-blue-500"></span><span data-i18n="spec_3">Consumo de
+                                    APIs REST</span></li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-2 h-2 rounded-full bg-blue-500"></span><span
+                                    data-i18n="spec_4">Persistencia de Datos (Room)</span></li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-2 h-2 rounded-full bg-blue-500"></span><span data-i18n="spec_5">Testing
+                                    (JUnit)</span></li>
+                        </ul>
+                    </div>
+                    <div
+                        class="p-8 bg-slate-100 dark:bg-slate-800/50 rounded-[2rem] border border-slate-200 dark:border-slate-700">
+                        <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i data-lucide="pen-tool"
+                                class="text-slate-500"></i><span data-i18n="tools_title">Otras Herramientas</span></h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div
+                                class="tech-card flex flex-col items-center gap-2 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
+                                <i data-lucide="cpu" class="text-green-500 w-6 h-6"></i>
+                                <span class="text-xs font-bold text-center">Android Studio</span>
+                            </div>
+                            <div
+                                class="tech-card flex flex-col items-center gap-2 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
+                                <i data-lucide="git-branch" class="text-orange-600 w-6 h-6"></i>
+                                <span class="text-xs font-bold text-center">Git / GitHub</span>
+                            </div>
+                            <div
+                                class="tech-card flex flex-col items-center gap-2 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
+                                <i data-lucide="check-circle" class="text-red-500 w-6 h-6"></i>
+                                <span class="text-xs font-bold text-center">JUnit + MockK</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-16">
-                <!-- Tech Items -->
-                <div class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
-                    <div class="tech-tooltip">Kotlin - Experto</div>
-                    <div class="text-purple-500 group-hover:scale-110 transition-transform"><i data-lucide="zap" class="w-10 h-10"></i></div>
-                    <span class="text-sm font-bold">Kotlin</span>
+            <!-- Experience Section -->
+            <section id="experience" class="py-20 border-t border-slate-200 dark:border-slate-800">
+                <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white"><i
+                            data-lucide="smartphone" class="w-5 h-5"></i></span>
+                    <span data-i18n="exp_title">Experiencia Android</span>
+                </h2>
+                <div class="space-y-12">
+                    <div
+                        class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group hover:border-blue-500 transition-colors">
+                        <div
+                            class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-800 group-hover:bg-blue-500 transition-colors border-4 border-white dark:border-slate-950">
+                        </div>
+                        <div class="mb-1 text-sm font-bold text-blue-600" data-i18n="exp_date_1">2022 - Presente</div>
+                        <h3 class="text-xl font-bold">Senior Android Developer</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mb-4 font-medium">Tech Solutions Medellín</p>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="exp_desc_1">Liderazgo
+                            técnico en aplicaciones móviles nativas. Implementación de Jetpack Compose y Clean
+                            Architecture para mejorar la escalabilidad y mantenibilidad.</p>
+                    </div>
+                    <div
+                        class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group hover:border-blue-500 transition-colors">
+                        <div
+                            class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-800 group-hover:bg-blue-500 transition-colors border-4 border-white dark:border-slate-950">
+                        </div>
+                        <div class="mb-1 text-sm font-bold text-blue-600" data-i18n="exp_date_2">2020 - 2022</div>
+                        <h3 class="text-xl font-bold">Software Engineer - Mobile</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mb-4 font-medium">App Factory</p>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="exp_desc_2">Desarrollo
+                            de módulos compartidos en Kotlin Multiplatform y optimización de consumo de red mediante
+                            Retrofit y Corrutinas.</p>
+                    </div>
                 </div>
-                <div class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
-                    <div class="tech-tooltip">Jetpack Compose - Avanzado</div>
-                    <div class="text-green-500 group-hover:scale-110 transition-transform"><i data-lucide="layout" class="w-10 h-10"></i></div>
-                    <span class="text-sm font-bold">Compose</span>
-                </div>
-                <div class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
-                    <div class="tech-tooltip">Android SDK - Avanzado</div>
-                    <div class="text-green-600 group-hover:scale-110 transition-transform"><i data-lucide="smartphone" class="w-10 h-10"></i></div>
-                    <span class="text-sm font-bold">Android SDK</span>
-                </div>
-                <div class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
-                    <div class="tech-tooltip">Coroutines - Avanzado</div>
-                    <div class="text-blue-500 group-hover:scale-110 transition-transform"><i data-lucide="zap" class="w-10 h-10"></i></div>
-                    <span class="text-sm font-bold">Coroutines</span>
-                </div>
-                <div class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
-                    <div class="tech-tooltip">Flow / StateFlow - Avanzado</div>
-                    <div class="text-cyan-500 group-hover:scale-110 transition-transform"><i data-lucide="activity" class="w-10 h-10"></i></div>
-                    <span class="text-sm font-bold">Flow</span>
-                </div>
-                <div class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
-                    <div class="tech-tooltip">Clean Architecture - Avanzado</div>
-                    <div class="text-blue-600 group-hover:scale-110 transition-transform"><i data-lucide="code-2" class="w-10 h-10"></i></div>
-                    <span class="text-sm font-bold">Clean Arch</span>
-                </div>
-                <div class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
-                    <div class="tech-tooltip">MVVM - Avanzado</div>
-                    <div class="text-indigo-400 group-hover:scale-110 transition-transform"><i data-lucide="box" class="w-10 h-10"></i></div>
-                    <span class="text-sm font-bold">MVVM</span>
-                </div>
-                <div class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
-                    <div class="tech-tooltip">Hilt / Dagger - Avanzado</div>
-                    <div class="text-yellow-600 group-hover:scale-110 transition-transform"><i data-lucide="layers" class="w-10 h-10"></i></div>
-                    <span class="text-sm font-bold">Hilt</span>
-                </div>
-                <div class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
-                    <div class="tech-tooltip">Room Database - Avanzado</div>
-                    <div class="text-slate-400 group-hover:scale-110 transition-transform"><i data-lucide="database" class="w-10 h-10"></i></div>
-                    <span class="text-sm font-bold">Room</span>
-                </div>
-                <div class="tech-card flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all group">
-                    <div class="tech-tooltip">Firebase - Intermedio</div>
-                    <div class="text-orange-500 group-hover:scale-110 transition-transform"><i data-lucide="flame" class="w-10 h-10"></i></div>
-                    <span class="text-sm font-bold">Firebase</span>
-                </div>
-            </div>
+            </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="p-8 bg-blue-50 dark:bg-blue-900/10 rounded-[2rem] border border-blue-100 dark:border-blue-800">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i data-lucide="check-circle" class="text-blue-500"></i><span data-i18n="specialties_title">Especialidades</span></h3>
-                    <ul class="space-y-4 text-slate-600 dark:text-slate-400 text-lg">
-                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-blue-500"></span><span data-i18n="spec_1">Desarrollo Android Nativo</span></li>
-                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-blue-500"></span><span data-i18n="spec_2">UI Declarativa (Compose)</span></li>
-                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-blue-500"></span><span data-i18n="spec_3">Consumo de APIs REST</span></li>
-                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-blue-500"></span><span data-i18n="spec_4">Persistencia de Datos (Room)</span></li>
-                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-blue-500"></span><span data-i18n="spec_5">Testing (JUnit)</span></li>
-                    </ul>
-                </div>
-                <div class="p-8 bg-slate-100 dark:bg-slate-800/50 rounded-[2rem] border border-slate-200 dark:border-slate-700">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i data-lucide="pen-tool" class="text-slate-500"></i><span data-i18n="tools_title">Otras Herramientas</span></h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="tech-card flex flex-col items-center gap-2 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
-                            <i data-lucide="cpu" class="text-green-500 w-6 h-6"></i>
-                            <span class="text-xs font-bold text-center">Android Studio</span>
+            <!-- Projects Section -->
+            <section id="projects" class="py-20 border-t border-slate-200 dark:border-slate-800">
+                <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white"><i
+                            data-lucide="code-2" class="w-5 h-5"></i></span>
+                    <span data-i18n="projects_title">Proyectos Android</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1: Modern Portfolio -->
+                    <div
+                        class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
+                        <div class="aspect-video overflow-hidden"><img src="assets/projects/portfolio_screenshot.webp"
+                                alt="Project" fetchpriority="high"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         </div>
-                        <div class="tech-card flex flex-col items-center gap-2 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
-                            <i data-lucide="git-branch" class="text-orange-600 w-6 h-6"></i>
-                            <span class="text-xs font-bold text-center">Git / GitHub</span>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">HTML5</span>
+                                <span
+                                    class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Tailwind</span>
+                                <span
+                                    class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">JS</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2" data-i18n="p1_title">Modern Portfolio</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4" data-i18n="p1_desc">Mi portafolio
+                                personal interactivo con animaciones premium.</p>
+                            <div class="mt-8 flex justify-center md:justify-start">
+                                <a href="https://github.com/Cordobot/mi_portafolio" target="_blank" class="btn-github"
+                                    aria-label="Ver en GitHub">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-github">
+                                        <path
+                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                                    </svg>
+                                    <span>Ver en GitHub</span>
+                                </a>
+                            </div>
                         </div>
-                        <div class="tech-card flex flex-col items-center gap-2 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
-                            <i data-lucide="check-circle" class="text-red-500 w-6 h-6"></i>
-                            <span class="text-xs font-bold text-center">JUnit + MockK</span>
+                    </div>
+                    <!-- Project 2: Rick and Morty -->
+                    <div
+                        class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
+                        <div class="aspect-video overflow-hidden"><img
+                                src="assets/projects/project_mobile_app_mockup_1777221281169.webp" alt="Project"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Kotlin</span>
+                                <span
+                                    class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Compose</span>
+                                <span
+                                    class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">MVVM</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2" data-i18n="p2_title">Rick and Morty App</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4" data-i18n="p2_desc">App Android
+                                usando Kotlin, Jetpack Compose y Retrofit.</p>
+                            <div class="mt-8 flex justify-center md:justify-start">
+                                <a href="https://github.com/Cordobot" target="_blank" class="btn-github"
+                                    aria-label="Ver en GitHub">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-github">
+                                        <path
+                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                                    </svg>
+                                    <span>Ver en GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 3: Pokedex -->
+                    <div
+                        class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
+                        <div class="aspect-video overflow-hidden"><img
+                                src="assets/projects/project_mobile_app_mockup_1777221281169.webp" alt="Project"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">KMP</span>
+                                <span
+                                    class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Compose</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2" data-i18n="p3_title">Pokedex KMP</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4" data-i18n="p3_desc">App
+                                multiplataforma compartiendo lógica con Kotlin Multiplatform.</p>
+                            <div class="mt-8 flex justify-center md:justify-start">
+                                <a href="https://github.com/Cordobot" target="_blank" class="btn-github"
+                                    aria-label="Ver en GitHub">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-github">
+                                        <path
+                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                                    </svg>
+                                    <span>Ver en GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 4: Crypto Tracker -->
+                    <div
+                        class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
+                        <div class="aspect-video overflow-hidden"><img src="assets/projects/project4.webp" alt="Project"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Android</span>
+                                <span
+                                    class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Room</span>
+                                <span
+                                    class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Hilt</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2" data-i18n="p4_title">Crypto Tracker</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4" data-i18n="p4_desc">Monitoreo de
+                                criptomonedas con gráficos de alto rendimiento.</p>
+                            <div class="mt-8 flex justify-center md:justify-start">
+                                <a href="https://github.com/Cordobot" target="_blank" class="btn-github"
+                                    aria-label="Ver en GitHub">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-github">
+                                        <path
+                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                                    </svg>
+                                    <span>Ver en GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 5: Fitness App -->
+                    <div
+                        class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
+                        <div class="aspect-video overflow-hidden"><img
+                                src="https://api.dicebear.com/7.x/initials/svg?seed=FA" alt="Project"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Compose</span>
+                                <span
+                                    class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">WorkManager</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2" data-i18n="p5_title">Fitness App</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4" data-i18n="p5_desc">Seguimiento
+                                de entrenamientos con WorkManager y Sensores.</p>
+                            <div class="mt-8 flex justify-center md:justify-start">
+                                <a href="https://github.com/Cordobot" target="_blank" class="btn-github"
+                                    aria-label="Ver en GitHub">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-github">
+                                        <path
+                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                                    </svg>
+                                    <span>Ver en GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 6: News App -->
+                    <div
+                        class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
+                        <div class="aspect-video overflow-hidden"><img
+                                src="https://api.dicebear.com/7.x/initials/svg?seed=NA" alt="Project"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Kotlin</span>
+                                <span
+                                    class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Dagger
+                                    Hilt</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2" data-i18n="p6_title">News App</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4" data-i18n="p6_desc">Lector de
+                                noticias con Clean Architecture y paginación 3.</p>
+                            <div class="mt-8 flex justify-center md:justify-start">
+                                <a href="https://github.com/Cordobot" target="_blank" class="btn-github"
+                                    aria-label="Ver en GitHub">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-github">
+                                        <path
+                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                                    </svg>
+                                    <span>Ver en GitHub</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="py-20 border-t border-slate-200 dark:border-slate-800">
-            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
-                <span class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white"><i data-lucide="smartphone" class="w-5 h-5"></i></span>
-                <span data-i18n="exp_title">Experiencia Android</span>
-            </h2>
-            <div class="space-y-12">
-                <div class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group hover:border-blue-500 transition-colors">
-                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-800 group-hover:bg-blue-500 transition-colors border-4 border-white dark:border-slate-950"></div>
-                    <div class="mb-1 text-sm font-bold text-blue-600" data-i18n="exp_date_1">2022 - Presente</div>
-                    <h3 class="text-xl font-bold">Senior Android Developer</h3>
-                    <p class="text-slate-600 dark:text-slate-300 mb-4 font-medium">Tech Solutions Medellín</p>
-                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="exp_desc_1">Liderazgo técnico en aplicaciones móviles nativas. Implementación de Jetpack Compose y Clean Architecture para mejorar la escalabilidad y mantenibilidad.</p>
-                </div>
-                <div class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group hover:border-blue-500 transition-colors">
-                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-800 group-hover:bg-blue-500 transition-colors border-4 border-white dark:border-slate-950"></div>
-                    <div class="mb-1 text-sm font-bold text-blue-600" data-i18n="exp_date_2">2020 - 2022</div>
-                    <h3 class="text-xl font-bold">Software Engineer - Mobile</h3>
-                    <p class="text-slate-600 dark:text-slate-300 mb-4 font-medium">App Factory</p>
-                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="exp_desc_2">Desarrollo de módulos compartidos en Kotlin Multiplatform y optimización de consumo de red mediante Retrofit y Corrutinas.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-20 border-t border-slate-200 dark:border-slate-800">
-            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
-                <span class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white"><i data-lucide="code-2" class="w-5 h-5"></i></span>
-                <span data-i18n="projects_title">Proyectos Android</span>
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1: Modern Portfolio -->
-                <div class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                    <div class="aspect-video overflow-hidden"><img src="assets/projects/portfolio_screenshot.webp" alt="Project" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
-                    <div class="p-6">
-                        <div class="flex gap-2 mb-4">
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">HTML5</span>
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Tailwind</span>
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">JS</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" data-i18n="p1_title">Modern Portfolio</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4" data-i18n="p1_desc">Mi portafolio personal interactivo con animaciones premium.</p>
-                        <div class="mt-8 flex justify-center md:justify-start">
-                            <a href="https://github.com/Cordobot" target="_blank" class="btn-github" aria-label="Ver en GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                                <span>Ver en GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 2: Rick and Morty -->
-                <div class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                    <div class="aspect-video overflow-hidden"><img src="assets/projects/project_mobile_app_mockup_1777221281169.webp" alt="Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
-                    <div class="p-6">
-                        <div class="flex gap-2 mb-4">
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Kotlin</span>
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Compose</span>
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">MVVM</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" data-i18n="p2_title">Rick and Morty App</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4" data-i18n="p2_desc">App Android usando Kotlin, Jetpack Compose y Retrofit.</p>
-                        <div class="mt-8 flex justify-center md:justify-start">
-                            <a href="https://github.com/Cordobot" target="_blank" class="btn-github" aria-label="Ver en GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                                <span>Ver en GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 3: Pokedex -->
-                <div class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                    <div class="aspect-video overflow-hidden"><img src="assets/projects/project_mobile_app_mockup_1777221281169.webp" alt="Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
-                    <div class="p-6">
-                        <div class="flex gap-2 mb-4">
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">KMP</span>
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Compose</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" data-i18n="p3_title">Pokedex KMP</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4" data-i18n="p3_desc">App multiplataforma compartiendo lógica con Kotlin Multiplatform.</p>
-                        <div class="mt-8 flex justify-center md:justify-start">
-                            <a href="https://github.com/Cordobot" target="_blank" class="btn-github" aria-label="Ver en GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                                <span>Ver en GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 4: Crypto Tracker -->
-                <div class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                    <div class="aspect-video overflow-hidden"><img src="assets/projects/project4.webp" alt="Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
-                    <div class="p-6">
-                        <div class="flex gap-2 mb-4">
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Android</span>
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Room</span>
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Hilt</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" data-i18n="p4_title">Crypto Tracker</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4" data-i18n="p4_desc">Monitoreo de criptomonedas con gráficos de alto rendimiento.</p>
-                        <div class="mt-8 flex justify-center md:justify-start">
-                            <a href="https://github.com/Cordobot" target="_blank" class="btn-github" aria-label="Ver en GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                                <span>Ver en GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 5: Fitness App -->
-                <div class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                    <div class="aspect-video overflow-hidden"><img src="https://api.dicebear.com/7.x/initials/svg?seed=FA" alt="Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
-                    <div class="p-6">
-                        <div class="flex gap-2 mb-4">
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Compose</span>
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">WorkManager</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" data-i18n="p5_title">Fitness App</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4" data-i18n="p5_desc">Seguimiento de entrenamientos con WorkManager y Sensores.</p>
-                        <div class="mt-8 flex justify-center md:justify-start">
-                            <a href="https://github.com/Cordobot" target="_blank" class="btn-github" aria-label="Ver en GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                                <span>Ver en GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 6: News App -->
-                <div class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                    <div class="aspect-video overflow-hidden"><img src="https://api.dicebear.com/7.x/initials/svg?seed=NA" alt="Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
-                    <div class="p-6">
-                        <div class="flex gap-2 mb-4">
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Kotlin</span>
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Dagger Hilt</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" data-i18n="p6_title">News App</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4" data-i18n="p6_desc">Lector de noticias con Clean Architecture y paginación 3.</p>
-                        <div class="mt-8 flex justify-center md:justify-start">
-                            <a href="https://github.com/Cordobot" target="_blank" class="btn-github" aria-label="Ver en GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                                <span>Ver en GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-            <footer class="mt-20 pt-10 border-t border-slate-200 dark:border-slate-800 text-center text-slate-600 dark:text-slate-300 text-sm">
-                <p>© <span id="year"></span> <span class="font-bold text-slate-900 dark:text-white">Adrián Alvarez</span>. <span data-i18n="footer_rights">Todos los derechos reservados.</span></p>
+            <footer
+                class="mt-20 pt-10 border-t border-slate-200 dark:border-slate-800 text-center text-slate-600 dark:text-slate-300 text-sm">
+                <p>© <span id="year"></span> <span class="font-bold text-slate-900 dark:text-white">Adrián
+                        Alvarez</span>. <span data-i18n="footer_rights">Todos los derechos reservados.</span></p>
             </footer>
         </div>
     </main>
 
     <!-- Scroll to Top -->
-    <button id="scroll-to-top" class="fixed bottom-8 right-8 z-[60] p-4 bg-blue-600 text-white rounded-full shadow-2xl hover:bg-blue-700 transition-all border-4 border-white dark:border-slate-950 group opacity-0 pointer-events-none translate-y-10" aria-label="Scroll to top">
+    <button id="scroll-to-top"
+        class="fixed bottom-8 right-8 z-[60] p-4 bg-blue-600 text-white rounded-full shadow-2xl hover:bg-blue-700 transition-all border-4 border-white dark:border-slate-950 group opacity-0 pointer-events-none translate-y-10"
+        aria-label="Scroll to top">
         <i data-lucide="triangle" class="w-6 h-6 fill-current"></i>
     </button>
 
     <!-- Contact Modal -->
-    <div id="contact-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden opacity-0 transition-all duration-300 pointer-events-none">
+    <div id="contact-modal"
+        class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden opacity-0 transition-all duration-300 pointer-events-none">
         <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md" onclick="toggleModal(false)"></div>
-        <div class="relative bg-white dark:bg-slate-900 w-full max-w-lg rounded-[2.5rem] shadow-2xl p-8 lg:p-12 border border-white/20 overflow-hidden transform scale-95 transition-all duration-300">
+        <div
+            class="relative bg-white dark:bg-slate-900 w-full max-w-lg rounded-[2.5rem] shadow-2xl p-8 lg:p-12 border border-white/20 overflow-hidden transform scale-95 transition-all duration-300">
             <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 to-cyan-400"></div>
-            <button onclick="toggleModal(false)" aria-label="Cerrar modal" class="absolute top-6 right-6 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <button onclick="toggleModal(false)" aria-label="Cerrar modal"
+                class="absolute top-6 right-6 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
             <h2 class="text-3xl font-bold mb-2" data-i18n="contact_title">Hablemos</h2>
-            <p class="text-slate-600 dark:text-slate-300 mb-8" data-i18n="contact_subtitle">Cuéntame sobre tu próximo gran proyecto.</p>
+            <p class="text-slate-600 dark:text-slate-300 mb-8" data-i18n="contact_subtitle">Cuéntame sobre tu próximo
+                gran proyecto.</p>
             <form id="contact-form" action="https://formspree.io/f/xjgjdggg" method="POST" class="flex flex-col gap-4">
                 <!-- Honeypot (Security) -->
                 <input type="text" name="_gotcha" style="display:none" aria-hidden="true">
-                
+
                 <div class="flex flex-col gap-2">
                     <label for="name" class="text-sm font-semibold" data-i18n="form_name">Nombre</label>
-                    <input type="text" id="name" name="name" autocomplete="name" class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                    <input type="text" id="name" name="name" autocomplete="name"
+                        class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                        required>
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="email" class="text-sm font-semibold" data-i18n="form_email">Email</label>
-                    <input type="email" id="email" name="email" autocomplete="email" class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                    <input type="email" id="email" name="email" autocomplete="email"
+                        class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                        required>
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="message" class="text-sm font-semibold" data-i18n="form_message">Mensaje</label>
-                    <textarea id="message" name="message" rows="4" class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all resize-none" required></textarea>
+                    <textarea id="message" name="message" rows="4"
+                        class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all resize-none"
+                        required></textarea>
                 </div>
-                <button type="submit" id="form-submit-btn" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-500/30 transition-all transform hover:scale-[1.02]" data-i18n="form_submit">
+                <button type="submit" id="form-submit-btn"
+                    class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-500/30 transition-all transform hover:scale-[1.02]"
+                    data-i18n="form_submit">
                     Enviar Mensaje
                 </button>
             </form>
-            <div id="form-success" class="hidden flex flex-col items-center text-center py-8 animate-in fade-in zoom-in duration-300">
-                <div class="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-500 mb-6">
+            <div id="form-success"
+                class="hidden flex flex-col items-center text-center py-8 animate-in fade-in zoom-in duration-300">
+                <div
+                    class="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-500 mb-6">
                     <i data-lucide="check-circle-2" class="w-12 h-12"></i>
                 </div>
                 <h3 class="text-2xl font-bold mb-2" data-i18n="form_success_title">¡Mensaje Enviado!</h3>
-                <p class="text-slate-600 dark:text-slate-300" data-i18n="form_success_desc">Gracias por contactarme. Te responderé lo antes posible.</p>
-                <button onclick="toggleModal(false)" class="mt-8 px-8 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-all" data-i18n="btn_close">Cerrar</button>
+                <p class="text-slate-600 dark:text-slate-300" data-i18n="form_success_desc">Gracias por contactarme. Te
+                    responderé lo antes posible.</p>
+                <button onclick="toggleModal(false)"
+                    class="mt-8 px-8 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"
+                    data-i18n="btn_close">Cerrar</button>
             </div>
         </div>
     </div>
 
 </body>
+
 </html>

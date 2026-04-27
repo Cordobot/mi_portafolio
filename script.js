@@ -178,7 +178,10 @@ function createFragments() {
     ];
 
     const fragment = document.createDocumentFragment();
-    for (let i = 0; i < 50; i++) {
+    const isMobile = window.innerWidth < 768;
+    const fragmentCount = isMobile ? 20 : 50;
+
+    for (let i = 0; i < fragmentCount; i++) {
         const span = document.createElement('span');
         span.className = 'intro-fragment';
         span.textContent = snippets[Math.floor(Math.random() * snippets.length)];
