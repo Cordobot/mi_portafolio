@@ -19,8 +19,12 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
     
-    <!-- Lucide Icons (Deferred) -->
+    <!-- Scripts (Deferred) -->
     <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="script.js" defer></script>
+    
+    <!-- Preload LCP Image -->
+    <link rel="preload" as="image" href="assets/hero_avatar.webp" fetchpriority="high">
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-hidden">
 
@@ -501,7 +505,5 @@
         </div>
     </div>
 
-    <!-- Script -->
-    <script src="script.js" defer></script>
 </body>
 </html>
