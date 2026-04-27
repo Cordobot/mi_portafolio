@@ -27,7 +27,31 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-hidden">
+
+    <!-- Intro Animation Overlay -->
+    <div id="intro-loader" class="fixed inset-0 z-[200] flex items-center justify-center bg-slate-950 font-mono">
+        <div class="relative flex flex-col items-center max-w-lg w-full px-8">
+            <!-- Terminal Header -->
+            <div id="intro-terminal" class="w-full bg-slate-900/50 rounded-t-xl border-x border-t border-slate-800 p-3 flex gap-2 opacity-0 transition-opacity duration-500">
+                <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+            </div>
+            <!-- Terminal Body -->
+            <div id="intro-console" class="w-full bg-slate-900/30 backdrop-blur-xl border border-slate-800 p-6 rounded-b-xl min-h-[200px] flex flex-col gap-2 text-sm md:text-base opacity-0 transition-all duration-500 translate-y-4">
+                <div class="code-line text-blue-400"></div>
+                <div class="code-line text-purple-400"></div>
+                <div class="code-line text-green-400"></div>
+                <div class="code-line text-slate-400"></div>
+            </div>
+            
+            <div id="intro-logo" class="mt-12 text-4xl md:text-6xl font-bold text-white tracking-[0.2em] opacity-0 translate-y-4 transition-all duration-1000">
+                ADRIÁN ALVAREZ
+            </div>
+            <div id="intro-bar" class="w-0 h-[2px] bg-blue-500 mt-4 transition-all duration-1000 ease-in-out"></div>
+        </div>
+    </div>
 
     <!-- Mobile Hamburger Button -->
     <button onclick="toggleMobileMenu()" class="lg:hidden fixed top-6 left-6 z-[110] p-3 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl text-blue-600">
@@ -386,19 +410,20 @@
                         </div>
                     </div>
                 </div>
-                <!-- Project 6 -->
+                <!-- Project 6: Modern Portfolio -->
                 <div class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                    <div class="aspect-video overflow-hidden"><img src="https://api.dicebear.com/7.x/initials/svg?seed=TM" alt="Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                    <div class="aspect-video overflow-hidden"><img src="assets/projects/portfolio_mockup.png" alt="Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
                     <div class="p-6">
                         <div class="flex gap-2 mb-4">
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Android</span>
-                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">DataStore</span>
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">HTML5</span>
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">Tailwind</span>
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold">JS</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-2" data-i18n="p6_title">Task Manager</h3>
-                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-4" data-i18n="p6_desc">Gestor de tareas con DataStore y Notificaciones Locales.</p>
+                        <h3 class="text-xl font-bold mb-2" data-i18n="p6_title">Modern Portfolio</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-4" data-i18n="p6_desc">Mi portafolio personal interactivo con animaciones premium.</p>
                         <div class="flex gap-4 mt-6">
-                            <a href="#" class="text-blue-600 hover:underline flex items-center gap-1 font-bold text-sm"><i data-lucide="external-link" class="w-4 h-4"></i> Demo</a>
-                            <a href="https://github.com/Cordobot" class="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                            <a href="https://github.com/Cordobot/mi_portafolio" target="_blank" class="text-blue-600 hover:underline flex items-center gap-1 font-bold text-sm"><i data-lucide="external-link" class="w-4 h-4"></i> Code</a>
+                            <a href="https://github.com/Cordobot/mi_portafolio" target="_blank" class="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
                         </div>
                     </div>
                 </div>

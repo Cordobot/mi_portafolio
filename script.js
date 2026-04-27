@@ -37,8 +37,8 @@ const translations = {
         p4_desc: "Seguimiento de entrenamientos con WorkManager y Sensores.",
         p5_title: "News App",
         p5_desc: "Lector de noticias con Clean Architecture y paginación 3.",
-        p6_title: "Task Manager",
-        p6_desc: "Gestor de tareas con DataStore y Notificaciones Locales.",
+        p6_title: "Modern Portfolio",
+        p6_desc: "Mi portafolio personal interactivo con animaciones premium.",
         exp_date_1: "2022 - Presente",
         exp_desc_1: "Liderazgo técnico en aplicaciones móviles nativas. Implementación de Jetpack Compose y Clean Architecture para mejorar la escalabilidad y mantenibilidad.",
         exp_date_2: "2020 - 2022",
@@ -87,8 +87,8 @@ const translations = {
         p4_desc: "Workout tracking with WorkManager and Sensors.",
         p5_title: "News App",
         p5_desc: "News reader with Clean Architecture and Paging 3.",
-        p6_title: "Task Manager",
-        p6_desc: "Task manager with DataStore and Local Notifications.",
+        p6_title: "Modern Portfolio",
+        p6_desc: "Interactive personal portfolio with premium animations.",
         exp_date_1: "2022 - Present",
         exp_desc_1: "Technical leadership in native mobile apps. Implementation of Jetpack Compose and Clean Architecture to improve scalability and maintainability.",
         exp_date_2: "2020 - 2022",
@@ -106,16 +106,70 @@ let isDarkMode = localStorage.getItem('theme') === 'dark' || (!localStorage.getI
 
 // Initialize UI
 function init() {
+    startIntro();
     updateLanguage();
     if (isDarkMode) {
         document.documentElement.classList.add('dark');
         updateThemeIcon();
     }
     lucide.createIcons();
-    initTypewriter();
     initScrollToTop();
     initYear();
     initContactForm();
+}
+
+// Intro Logic
+function startIntro() {
+    const loader = document.getElementById('intro-loader');
+    const terminal = document.getElementById('intro-terminal');
+    const consoleBox = document.getElementById('intro-console');
+    const logo = document.getElementById('intro-logo');
+    const bar = document.getElementById('intro-bar');
+    const lines = document.querySelectorAll('.code-line');
+
+    const codeSnippets = [
+        "Initializing Android SDK...",
+        "import com.adrian.portfolio.Kotlin",
+        "val developer = \"Adrián Alvarez\"",
+        "System.ready() // Welcome!"
+    ];
+
+    // Start terminal animation
+    setTimeout(() => {
+        terminal.classList.add('active');
+        consoleBox.classList.add('active');
+        
+        // Type lines one by one (slower interval)
+        codeSnippets.forEach((text, index) => {
+            setTimeout(() => {
+                typeCodeLine(lines[index], text);
+            }, index * 800 + 500);
+        });
+    }, 800);
+
+    // After terminal sequence, show name and reveal (increased delays)
+    setTimeout(() => {
+        logo.classList.add('active');
+        bar.classList.add('active');
+        
+        setTimeout(() => {
+            loader.classList.add('reveal');
+            document.body.classList.remove('overflow-hidden');
+            setTimeout(initTypewriter, 1200);
+        }, 2500);
+    }, 4500);
+}
+
+function typeCodeLine(element, text) {
+    let i = 0;
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, 50); // Slower typing speed
+        }
+    }
+    type();
 }
 
 // Language Logic
