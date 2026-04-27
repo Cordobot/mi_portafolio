@@ -13,9 +13,16 @@
 }
 
 .btn-github {
-    @apply inline-flex flex-row items-center justify-center gap-2 px-8 py-3 text-white font-bold transition-all duration-300 border border-white/5;
+    @apply inline-flex flex-row items-center justify-center gap-2 px-6 py-2.5 text-white font-bold transition-all duration-300 border border-white/5;
     background-color: #1e293b !important; /* Slate 800 */
     border-radius: 1rem !important; /* rounded-2xl */
+}
+
+@media (max-width: 768px) {
+    .btn-github {
+        @apply px-3 py-1.5 gap-1 text-[10px] !important;
+        border-radius: 0.75rem !important;
+    }
 }
 
 .btn-github:hover {
