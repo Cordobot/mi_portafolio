@@ -109,7 +109,7 @@
 
     <!-- Vertical Navbar -->
     <nav id="navbar"
-        class="fixed left-0 top-0 h-screen w-64 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between p-8 z-[100] transition-transform duration-500 ease-in-out lg:translate-x-0 overflow-y-auto">
+        class="fixed left-0 top-0 h-screen w-64 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between p-8 z-[100] transition-transform duration-500 ease-in-out lg:translate-x-0 overflow-hidden">
         <div class="flex flex-col gap-8">
             <!-- Profile -->
             <div class="flex flex-col items-center gap-4">
@@ -255,7 +255,8 @@
                             <span
                                 class="typewriter-cursor inline-block w-1 h-8 md:h-12 lg:h-16 bg-blue-600 ml-1 align-middle"></span>
                             <br />
-                            <span class="text-2xl md:text-3xl lg:text-5xl" data-i18n="about_title_2">Android Developer.</span>
+                            <span class="text-2xl md:text-3xl lg:text-5xl" data-i18n="about_title_2">Android
+                                Developer.</span>
                         </h2>
                     </div>
 
@@ -454,11 +455,11 @@
                             data-lucide="code-2" class="w-5 h-5"></i></span>
                     <span data-i18n="projects_title">Proyectos Android</span>
                 </h2>
-                <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
+                <div id="projects-grid" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
                     <!-- Project 1: Modern Portfolio -->
                     <div
                         class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                        <div class="aspect-video overflow-hidden"><img src="assets/projects/portfolio_screenshot.webp"
+                        <div class="aspect-video overflow-hidden cursor-pointer" onclick="openProjectModal(0)"><img src="assets/projects/portfolio_screenshot.webp"
                                 alt="Project" fetchpriority="high"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         </div>
@@ -471,8 +472,10 @@
                                 <span
                                     class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">JS</span>
                             </div>
-                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p1_title">Modern Portfolio</h3>
-                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight" data-i18n="p1_desc">Mi portafolio
+                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p1_title">Modern
+                                Portfolio</h3>
+                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight"
+                                data-i18n="p1_desc">Mi portafolio
                                 personal interactivo con animaciones premium.</p>
                             <div class="mt-2 md:mt-8 flex justify-center">
                                 <a href="https://github.com/Cordobot/mi_portafolio" target="_blank" class="btn-github"
@@ -492,7 +495,7 @@
                     <!-- Project 2: Rick and Morty -->
                     <div
                         class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                        <div class="aspect-video overflow-hidden"><img
+                        <div class="aspect-video overflow-hidden cursor-pointer" onclick="openProjectModal(1)"><img
                                 src="assets/projects/project_mobile_app_mockup_1777221281169.webp" alt="Project"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         </div>
@@ -505,8 +508,10 @@
                                 <span
                                     class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">MVVM</span>
                             </div>
-                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p2_title">Rick and Morty App</h3>
-                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight" data-i18n="p2_desc">App Android
+                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p2_title">Rick and
+                                Morty App</h3>
+                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight"
+                                data-i18n="p2_desc">App Android
                                 usando Kotlin, Jetpack Compose y Retrofit.</p>
                             <div class="mt-2 md:mt-8 flex justify-center">
                                 <a href="https://github.com/Cordobot" target="_blank" class="btn-github"
@@ -526,7 +531,7 @@
                     <!-- Project 3: Pokedex -->
                     <div
                         class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                        <div class="aspect-video overflow-hidden"><img
+                        <div class="aspect-video overflow-hidden cursor-pointer" onclick="openProjectModal(2)"><img
                                 src="assets/projects/project_mobile_app_mockup_1777221281169.webp" alt="Project"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         </div>
@@ -537,8 +542,10 @@
                                 <span
                                     class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Compose</span>
                             </div>
-                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p3_title">Pokedex KMP</h3>
-                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight" data-i18n="p3_desc">App
+                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p3_title">Pokedex KMP
+                            </h3>
+                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight"
+                                data-i18n="p3_desc">App
                                 multiplataforma compartiendo lógica con Kotlin Multiplatform.</p>
                             <div class="mt-2 md:mt-8 flex justify-center">
                                 <a href="https://github.com/Cordobot" target="_blank" class="btn-github"
@@ -558,7 +565,7 @@
                     <!-- Project 4: Crypto Tracker -->
                     <div
                         class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                        <div class="aspect-video overflow-hidden"><img src="assets/projects/project4.webp" alt="Project"
+                        <div class="aspect-video overflow-hidden cursor-pointer" onclick="openProjectModal(3)"><img src="assets/projects/project4.webp" alt="Project"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="p-2.5 md:p-6">
@@ -570,8 +577,10 @@
                                 <span
                                     class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Hilt</span>
                             </div>
-                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p4_title">Crypto Tracker</h3>
-                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight" data-i18n="p4_desc">Monitoreo de
+                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p4_title">Crypto
+                                Tracker</h3>
+                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight"
+                                data-i18n="p4_desc">Monitoreo de
                                 criptomonedas con gráficos de alto rendimiento.</p>
                             <div class="mt-2 md:mt-8 flex justify-center">
                                 <a href="https://github.com/Cordobot" target="_blank" class="btn-github"
@@ -591,7 +600,7 @@
                     <!-- Project 5: Fitness App -->
                     <div
                         class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                        <div class="aspect-video overflow-hidden"><img
+                        <div class="aspect-video overflow-hidden cursor-pointer" onclick="openProjectModal(4)"><img
                                 src="https://api.dicebear.com/7.x/initials/svg?seed=FA" alt="Project"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         </div>
@@ -602,8 +611,10 @@
                                 <span
                                     class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">WorkManager</span>
                             </div>
-                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p5_title">Fitness App</h3>
-                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight" data-i18n="p5_desc">Seguimiento
+                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p5_title">Fitness App
+                            </h3>
+                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight"
+                                data-i18n="p5_desc">Seguimiento
                                 de entrenamientos con WorkManager y Sensores.</p>
                             <div class="mt-2 md:mt-8 flex justify-center">
                                 <a href="https://github.com/Cordobot" target="_blank" class="btn-github"
@@ -623,7 +634,7 @@
                     <!-- Project 6: News App -->
                     <div
                         class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                        <div class="aspect-video overflow-hidden"><img
+                        <div class="aspect-video overflow-hidden cursor-pointer" onclick="openProjectModal(5)"><img
                                 src="https://api.dicebear.com/7.x/initials/svg?seed=NA" alt="Project"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         </div>
@@ -634,8 +645,10 @@
                                 <span
                                     class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Dagger</span>
                             </div>
-                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p6_title">News App</h3>
-                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight" data-i18n="p6_desc">Lector de
+                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p6_title">News App
+                            </h3>
+                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight"
+                                data-i18n="p6_desc">Lector de
                                 noticias con Clean Architecture y paginación 3.</p>
                             <div class="mt-2 md:mt-8 flex justify-center">
                                 <a href="https://github.com/Cordobot" target="_blank" class="btn-github"
@@ -657,8 +670,10 @@
 
             <footer
                 class="mt-20 pt-10 border-t border-slate-200 dark:border-slate-800 text-center text-slate-600 dark:text-slate-300 text-sm">
-                <p>© <span id="year"></span> <span class="font-bold text-slate-900 dark:text-white">Adrián
-                        Alvarez</span>. <span data-i18n="footer_rights">Todos los derechos reservados.</span></p>
+                <p class="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
+                    <span>© <span id="year"></span> <span class="font-bold text-slate-900 dark:text-white">Adrián Alvarez</span></span>
+                    <span data-i18n="footer_rights">Todos los derechos reservados.</span>
+                </p>
             </footer>
         </div>
     </main>
@@ -668,30 +683,46 @@
         class="fixed top-8 right-8 z-[60] transition-all duration-500 opacity-100 pointer-events-auto">
         <button onclick="toggleModal(true)" class="relative group cursor-pointer">
             <div
-                class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-pulse">
+                class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full md:rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-pulse">
             </div>
             <div
-                class="relative px-6 py-3 bg-white dark:bg-slate-900 rounded-2xl leading-none flex items-center gap-3 border border-slate-200 dark:border-slate-800 shadow-xl">
-                <span class="flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-blue-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                class="relative w-14 h-14 md:w-auto md:h-auto md:px-6 md:py-3.5 bg-white dark:bg-slate-900 rounded-full md:rounded-2xl flex items-center justify-center gap-3 border-4 border-transparent md:border-none shadow-xl">
+                <span class="hidden md:flex h-2.5 w-2.5 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
                 </span>
-                <span class="text-slate-800 dark:text-white font-bold text-sm" data-i18n="nav_contact">Contacto</span>
-                <i data-lucide="mail" class="text-blue-500 w-4 h-4"></i>
+                <span class="hidden md:inline text-slate-800 dark:text-white font-bold text-sm tracking-wide" data-i18n="nav_contact">Contacto</span>
+                <i data-lucide="mail" class="text-blue-500 w-6 h-6 md:w-5 md:h-5"></i>
             </div>
         </button>
     </div>
 
     <!-- Scroll to Top -->
     <button id="scroll-to-top"
-        class="fixed bottom-8 right-8 z-[60] p-4 bg-blue-600 text-white rounded-full shadow-2xl hover:bg-blue-700 transition-all border-4 border-white dark:border-slate-950 group opacity-0 pointer-events-none translate-y-10 cursor-pointer"
+        class="fixed bottom-8 right-8 z-[60] w-14 h-14 flex items-center justify-center bg-blue-600 text-white rounded-full shadow-2xl hover:bg-blue-700 transition-all border-4 border-white dark:border-slate-950 group opacity-0 pointer-events-none translate-y-10 cursor-pointer"
         aria-label="Scroll to top">
         <i data-lucide="triangle" class="w-6 h-6 fill-current"></i>
     </button>
 
+    <!-- Project Zoom Modal (Mobile Only) -->
+    <div id="project-zoom-modal"
+        class="fixed inset-0 z-[150] flex items-center justify-center p-4 hidden opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-md" onclick="closeProjectModal()"></div>
+        <div
+            class="relative bg-white dark:bg-slate-900 w-full max-w-sm rounded-[2.5rem] shadow-2xl overflow-hidden transform scale-95 transition-all duration-300 border border-slate-200 dark:border-slate-800">
+            <button onclick="closeProjectModal()"
+                class="absolute top-4 right-4 z-10 p-2 bg-black/20 backdrop-blur-md text-white rounded-full hover:bg-black/40 transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div id="zoom-content" class="flex flex-col">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
     <!-- Contact Modal -->
     <div id="contact-modal"
-        class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden opacity-0 transition-all duration-300 pointer-events-none">
+        class="fixed inset-0 z-[150] flex items-center justify-center p-4 hidden opacity-0 transition-all duration-300 pointer-events-none">
         <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md" onclick="toggleModal(false)"></div>
         <div
             class="relative bg-white dark:bg-slate-900 w-full max-w-lg rounded-[2.5rem] shadow-2xl p-8 lg:p-12 border border-white/20 overflow-hidden transform scale-95 transition-all duration-300">

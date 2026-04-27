@@ -126,7 +126,7 @@ function startIntro() {
     const portal = document.getElementById('intro-portal');
     const name = document.getElementById('intro-name');
     const sub = document.getElementById('intro-sub');
-    
+
     createFragments();
 
     // 1. Reveal Portal
@@ -152,7 +152,7 @@ function startIntro() {
     setTimeout(() => {
         loader.classList.add('reveal');
         document.body.classList.remove('overflow-hidden');
-        
+
         // Start hero typewriter slightly after
         setTimeout(() => {
             initTypewriter();
@@ -163,20 +163,20 @@ function startIntro() {
 function createFragments() {
     const container = document.getElementById('intro-fragments');
     const snippets = [
-        "val intent = Intent()", 
-        "fun onCreate() { }", 
-        "@Composable", 
-        "remember { mutableStateOf() }", 
-        "viewModelScope.launch { }", 
-        "HiltAndroidApp", 
-        "Room.databaseBuilder()", 
-        "flow.collect { }", 
-        "override fun onStart()", 
-        "data class User(val id: Int)", 
-        "Retrofit.Builder()", 
-        "AndroidSDK.version >= 34", 
-        "Jetpack Navigation", 
-        "suspend fun fetch()", 
+        "val intent = Intent()",
+        "fun onCreate() { }",
+        "@Composable",
+        "remember { mutableStateOf() }",
+        "viewModelScope.launch { }",
+        "HiltAndroidApp",
+        "Room.databaseBuilder()",
+        "flow.collect { }",
+        "override fun onStart()",
+        "data class User(val id: Int)",
+        "Retrofit.Builder()",
+        "AndroidSDK.version >= 34",
+        "Jetpack Navigation",
+        "suspend fun fetch()",
         "Modifier.fillMaxSize()",
         "println(\"Hello Kotlin!\")",
         "binding.root",
@@ -191,27 +191,27 @@ function createFragments() {
         const span = document.createElement('span');
         span.className = 'intro-fragment';
         span.textContent = snippets[Math.floor(Math.random() * snippets.length)];
-        
+
         const colors = ['#3b82f6', '#22d3ee', '#a855f7', '#4ade80'];
         span.style.color = colors[Math.floor(Math.random() * colors.length)];
-        
+
         const startX = Math.random() * 100 + "vw";
         const startY = Math.random() * 100 + "vh";
         const endX = (Math.random() * 80 + 10) + "vw";
         const endY = (Math.random() * 80 + 10) + "vh";
-        
+
         span.style.setProperty('--start-x', startX);
         span.style.setProperty('--start-y', startY);
         span.style.setProperty('--end-x', endX);
         span.style.setProperty('--end-y', endY);
-        
+
         span.style.left = "0";
         span.style.top = "0";
         span.style.animationDuration = (Math.random() * 4 + 3) + "s";
         span.style.animationDelay = (Math.random() * 3) + "s";
         span.style.fontSize = (Math.random() * 0.4 + 0.4) + "rem";
         span.style.opacity = Math.random() * 0.5 + 0.2;
-        
+
         fragment.appendChild(span);
     }
     container.appendChild(fragment);
@@ -256,9 +256,9 @@ function initTypewriter() {
     const text = "Adrián Alvarez";
     const container = document.getElementById('typewriter');
     let i = 0;
-    
+
     container.textContent = "";
-    
+
     function type() {
         if (i < text.length) {
             container.textContent += text.charAt(i);
@@ -280,24 +280,18 @@ function initScrollToTop() {
                 if (window.pageYOffset > 300) {
                     btn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
                     btn.classList.add('opacity-100', 'translate-y-0');
-                    
-                    // Move Contact to Bottom-Left of the scroll button
-                    contactBtn.classList.remove('top-8', 'right-8', 'opacity-0');
-                    contactBtn.classList.add('bottom-8', 'right-28', 'opacity-100', 'translate-y-0');
+                    contactBtn.classList.add('is-scrolled');
                 } else {
                     btn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
                     btn.classList.remove('opacity-100', 'translate-y-0');
-                    
-                    // Move Contact back to Top-Right
-                    contactBtn.classList.remove('bottom-8', 'right-28', 'translate-y-0');
-                    contactBtn.classList.add('top-8', 'right-8', 'opacity-100');
+                    contactBtn.classList.remove('is-scrolled');
                 }
                 ticking = false;
             });
             ticking = true;
         }
     });
-    
+
     btn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -307,16 +301,77 @@ function initScrollToTop() {
 function toggleModal(show) {
     const modal = document.getElementById('contact-modal');
     if (show) {
+        document.body.classList.add('overflow-hidden');
         modal.classList.remove('hidden');
         setTimeout(() => {
             modal.classList.remove('opacity-0', 'pointer-events-none');
             modal.querySelector('.relative').classList.remove('scale-95');
         }, 10);
     } else {
+        document.body.classList.remove('overflow-hidden');
         modal.classList.add('opacity-0', 'pointer-events-none');
         modal.querySelector('.relative').classList.add('scale-95');
         setTimeout(() => modal.classList.add('hidden'), 300);
     }
+}
+
+// Project Zoom Modal Logic
+function openProjectModal(index) {
+    // Solo en móvil (< 768px)
+    if (window.innerWidth >= 768) return;
+    
+    console.log('Abriendo proyecto:', index);
+    
+    const projectsGrid = document.getElementById('projects-grid');
+    if (!projectsGrid) {
+        console.error('No se encontró el contenedor #projects-grid');
+        return;
+    }
+
+    const projects = projectsGrid.children;
+    const project = projects[index];
+    
+    if (!project) {
+        console.error('No se encontró el proyecto en el índice:', index);
+        return;
+    }
+
+    try {
+        const img = project.querySelector('img').src;
+        const title = project.querySelector('h3').textContent;
+        const desc = project.querySelector('p').textContent;
+        const tags = project.querySelector('.flex.flex-wrap').innerHTML;
+        
+        const content = `
+            <img src="${img}" class="w-full aspect-video object-cover">
+            <div class="p-8">
+                <div class="flex flex-wrap gap-2 mb-4">${tags}</div>
+                <h3 class="text-2xl font-bold mb-4 dark:text-white">${title}</h3>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-base">${desc}</p>
+            </div>
+        `;
+        
+        document.getElementById('zoom-content').innerHTML = content;
+        const modal = document.getElementById('project-zoom-modal');
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('.relative').classList.remove('scale-95');
+        }, 10);
+    } catch (error) {
+        console.error('Error al extraer datos del proyecto:', error);
+    }
+}
+
+function closeProjectModal() {
+    const modal = document.getElementById('project-zoom-modal');
+    if (!modal) return;
+    
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.querySelector('.relative').classList.add('scale-95');
+    document.body.classList.remove('overflow-hidden');
+    setTimeout(() => modal.classList.add('hidden'), 300);
 }
 
 // Mobile Menu
@@ -324,13 +379,15 @@ function toggleMobileMenu() {
     const nav = document.getElementById('navbar');
     const overlay = document.getElementById('mobile-overlay');
     const icon = document.getElementById('menu-icon');
-    
+
     nav.classList.toggle('open');
     overlay.classList.toggle('hidden');
-    
+
     if (nav.classList.contains('open')) {
+        document.body.classList.add('overflow-hidden');
         icon.setAttribute('data-lucide', 'x');
     } else {
+        document.body.classList.remove('overflow-hidden');
         icon.setAttribute('data-lucide', 'menu');
     }
     lucide.createIcons();
@@ -351,7 +408,7 @@ function initContactForm() {
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const formData = new FormData(form);
         submitBtn.disabled = true;
         submitBtn.textContent = currentLang === 'es' ? 'Enviando...' : 'Sending...';
@@ -387,7 +444,7 @@ function initContactForm() {
 
 // Reset modal state when closed
 const originalToggleModal = toggleModal;
-toggleModal = function(show) {
+toggleModal = function (show) {
     originalToggleModal(show);
     if (!show) {
         setTimeout(() => {
@@ -395,7 +452,7 @@ toggleModal = function(show) {
             const successMsg = document.getElementById('form-success');
             const modalTitle = document.querySelector('#contact-modal h2');
             const modalSubtitle = document.querySelector('#contact-modal p');
-            
+
             form.classList.remove('hidden');
             modalTitle.classList.remove('hidden');
             modalSubtitle.classList.remove('hidden');

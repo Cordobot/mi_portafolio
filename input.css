@@ -34,3 +34,31 @@
 .btn-github span {
     color: white !important;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#navbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#navbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Scroll states for Contact Button */
+@media (min-width: 768px) {
+    #floating-contact.is-scrolled {
+        top: auto !important;
+        bottom: 2rem !important; /* bottom-8 */
+        right: 7rem !important; /* right-28 */
+    }
+}
+
+@media (max-width: 767px) {
+    #floating-contact.is-scrolled {
+        top: auto !important;
+        bottom: 6rem !important; /* bottom-24 */
+        right: 2rem !important; /* right-8 */
+    }
+}
