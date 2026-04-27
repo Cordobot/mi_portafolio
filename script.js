@@ -121,55 +121,91 @@ function init() {
 // Intro Logic
 function startIntro() {
     const loader = document.getElementById('intro-loader');
-    const terminal = document.getElementById('intro-terminal');
-    const consoleBox = document.getElementById('intro-console');
-    const logo = document.getElementById('intro-logo');
-    const bar = document.getElementById('intro-bar');
-    const lines = document.querySelectorAll('.code-line');
+    const portal = document.getElementById('intro-portal');
+    const name = document.getElementById('intro-name');
+    const sub = document.getElementById('intro-sub');
+    
+    createFragments();
 
-    const codeSnippets = [
-        "Initializing Android SDK...",
-        "import com.adrian.portfolio.Kotlin",
-        "val developer = \"Adrián Alvarez\"",
-        "System.ready() // Welcome!"
-    ];
-
-    // Start terminal animation
+    // 1. Reveal Portal
     setTimeout(() => {
-        terminal.classList.add('active');
-        consoleBox.classList.add('active');
-        
-        // Type lines one by one (slower interval)
-        codeSnippets.forEach((text, index) => {
-            setTimeout(() => {
-                typeCodeLine(lines[index], text);
-            }, index * 800 + 500);
-        });
-    }, 800);
+        portal.classList.add('active');
+    }, 400);
 
-    // After terminal sequence, show name and reveal (increased delays)
+    // 2. Reveal Name
     setTimeout(() => {
-        logo.classList.add('active');
-        bar.classList.add('active');
+        name.classList.add('active');
+    }, 1200);
+
+    // 3. Reveal Subtitle
+    setTimeout(() => {
+        sub.classList.add('active');
+    }, 1800);
+
+    // 4. Final Reveal (Portal expansion)
+    setTimeout(() => {
+        loader.classList.add('reveal');
+        document.body.classList.remove('overflow-hidden');
         
+        // Start hero typewriter slightly after
         setTimeout(() => {
-            loader.classList.add('reveal');
-            document.body.classList.remove('overflow-hidden');
-            setTimeout(initTypewriter, 1200);
-        }, 2500);
-    }, 4500);
+            initTypewriter();
+        }, 800);
+    }, 4000);
 }
 
-function typeCodeLine(element, text) {
-    let i = 0;
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, 50); // Slower typing speed
-        }
+function createFragments() {
+    const container = document.getElementById('intro-fragments');
+    const snippets = [
+        "val intent = Intent()", 
+        "fun onCreate() { }", 
+        "@Composable", 
+        "remember { mutableStateOf() }", 
+        "viewModelScope.launch { }", 
+        "HiltAndroidApp", 
+        "Room.databaseBuilder()", 
+        "flow.collect { }", 
+        "override fun onStart()", 
+        "data class User(val id: Int)", 
+        "Retrofit.Builder()", 
+        "AndroidSDK.version >= 34", 
+        "Jetpack Navigation", 
+        "suspend fun fetch()", 
+        "Modifier.fillMaxSize()",
+        "println(\"Hello Kotlin!\")",
+        "binding.root",
+        "lifecycleScope"
+    ];
+
+    for (let i = 0; i < 50; i++) {
+        const span = document.createElement('span');
+        span.className = 'intro-fragment';
+        span.textContent = snippets[Math.floor(Math.random() * snippets.length)];
+        
+        // Random colors
+        const colors = ['#3b82f6', '#22d3ee', '#a855f7', '#4ade80'];
+        span.style.color = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Random positions for a "Matrix/Nebula" feel
+        const startX = Math.random() * 100 + "vw";
+        const startY = Math.random() * 100 + "vh";
+        const endX = (Math.random() * 80 + 10) + "vw";
+        const endY = (Math.random() * 80 + 10) + "vh";
+        
+        span.style.setProperty('--start-x', startX);
+        span.style.setProperty('--start-y', startY);
+        span.style.setProperty('--end-x', endX);
+        span.style.setProperty('--end-y', endY);
+        
+        span.style.left = "0";
+        span.style.top = "0";
+        span.style.animationDuration = (Math.random() * 4 + 3) + "s";
+        span.style.animationDelay = (Math.random() * 3) + "s";
+        span.style.fontSize = (Math.random() * 0.4 + 0.4) + "rem";
+        span.style.opacity = Math.random() * 0.5 + 0.2;
+        
+        container.appendChild(span);
     }
-    type();
 }
 
 // Language Logic
