@@ -471,19 +471,19 @@
             <p class="text-slate-600 dark:text-slate-300 mb-8" data-i18n="contact_subtitle">Cuéntame sobre tu próximo gran proyecto.</p>
             <form id="contact-form" action="https://formspree.io/f/xjgjdggg" method="POST" class="flex flex-col gap-4">
                 <!-- Honeypot (Security) -->
-                <input type="text" name="_gotcha" style="display:none">
+                <input type="text" name="_gotcha" style="display:none" aria-hidden="true">
                 
                 <div class="flex flex-col gap-2">
-                    <label class="text-sm font-semibold" data-i18n="form_name">Nombre</label>
-                    <input type="text" name="name" class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                    <label for="name" class="text-sm font-semibold" data-i18n="form_name">Nombre</label>
+                    <input type="text" id="name" name="name" autocomplete="name" class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <label class="text-sm font-semibold" data-i18n="form_email">Email</label>
-                    <input type="email" name="email" class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
+                    <label for="email" class="text-sm font-semibold" data-i18n="form_email">Email</label>
+                    <input type="email" id="email" name="email" autocomplete="email" class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <label class="text-sm font-semibold" data-i18n="form_message">Mensaje</label>
-                    <textarea name="message" rows="4" class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all resize-none" required></textarea>
+                    <label for="message" class="text-sm font-semibold" data-i18n="form_message">Mensaje</label>
+                    <textarea id="message" name="message" rows="4" class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all resize-none" required></textarea>
                 </div>
                 <button type="submit" id="form-submit-btn" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-500/30 transition-all transform hover:scale-[1.02]" data-i18n="form_submit">
                     Enviar Mensaje
