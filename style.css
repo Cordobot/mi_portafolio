@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
 
 :root {
-    --primary-blue: #3b82f6;
-    --cyan-400: #22d3ee;
+    --primary-blue: #10b981;
+    --cyan-400: #2dd4bf;
 }
 
 body {
@@ -170,10 +170,10 @@ section {
     position: absolute;
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.75rem;
-    color: rgba(59, 130, 246, 0.6);
+    color: rgba(16, 185, 129, 0.6);
     user-select: none;
     white-space: nowrap;
-    text-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+    text-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
     animation: fragment-move linear infinite;
     backdrop-filter: blur(2px);
     padding: 2px 8px;

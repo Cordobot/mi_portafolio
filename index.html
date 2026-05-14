@@ -29,6 +29,7 @@
 
     <!-- Preload LCP Image -->
     <link rel="preload" as="image" href="assets/hero_avatar.webp" fetchpriority="high">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
 </head>
 
 <body
@@ -41,13 +42,13 @@
             <div id="intro-fragments" class="absolute inset-0 overflow-hidden opacity-30"></div>
             <!-- More Colorful Orbs -->
             <div
-                class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-blue-600/20 rounded-full blur-[100px] animate-pulse">
+                class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-emerald-600/20 rounded-full blur-[100px] animate-pulse">
             </div>
             <div
                 class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[100px] animate-pulse delay-1000">
             </div>
             <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-400/10 rounded-full blur-[120px] animate-pulse delay-500">
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-400/10 rounded-full blur-[120px] animate-pulse delay-500">
             </div>
             <div
                 class="absolute top-0 right-0 w-[300px] h-[300px] bg-green-500/5 rounded-full blur-[80px] animate-pulse delay-1500">
@@ -59,15 +60,15 @@
             <div id="intro-portal"
                 class="relative w-32 h-32 md:w-48 h-48 border border-white/10 rounded-full flex items-center justify-center transition-all duration-1000 scale-0 opacity-0 group">
                 <!-- Spinning Rings -->
-                <div class="absolute inset-0 border-t-2 border-blue-500 rounded-full animate-spin-slow"></div>
-                <div class="absolute inset-2 border-b-2 border-cyan-400 rounded-full animate-spin-reverse"></div>
+                <div class="absolute inset-0 border-t-2 border-emerald-500 rounded-full animate-spin-slow"></div>
+                <div class="absolute inset-2 border-b-2 border-teal-400 rounded-full animate-spin-reverse"></div>
 
                 <!-- Logo -->
                 <span class="text-5xl md:text-7xl font-black text-white select-none z-10">AA</span>
 
                 <!-- Inner Glow -->
                 <div
-                    class="absolute inset-0 bg-blue-500/20 rounded-full blur-xl scale-0 group-active:scale-100 transition-transform">
+                    class="absolute inset-0 bg-emerald-500/20 rounded-full blur-xl scale-0 group-active:scale-100 transition-transform">
                 </div>
             </div>
 
@@ -81,7 +82,7 @@
                 </div>
                 <div class="relative overflow-hidden h-6">
                     <p id="intro-sub"
-                        class="text-blue-400 font-mono text-sm tracking-[0.2em] translate-y-[150%] opacity-0 transition-all duration-1000 delay-300 ease-out">
+                        class="text-emerald-400 font-mono text-sm tracking-[0.2em] translate-y-[150%] opacity-0 transition-all duration-1000 delay-300 ease-out">
                         ANDROID DEVELOPER
                     </p>
                 </div>
@@ -91,7 +92,7 @@
 
     <!-- Mobile Hamburger Button -->
     <button onclick="toggleMobileMenu()" aria-label="Menu"
-        class="lg:hidden fixed top-6 left-6 z-[110] p-3 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl text-blue-600">
+        class="lg:hidden fixed top-6 left-6 z-[110] p-3 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl text-emerald-600">
         <i data-lucide="menu" id="menu-icon"></i>
     </button>
 
@@ -103,7 +104,7 @@
     <div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden opacity-20 dark:opacity-10">
         <svg class="absolute bottom-0 w-[200%] h-full animate-wave" viewBox="0 0 120 28" preserveAspectRatio="none">
             <path d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" fill="currentColor"
-                class="text-blue-500" />
+                class="text-emerald-500" />
         </svg>
     </div>
 
@@ -114,7 +115,7 @@
             <!-- Profile -->
             <div class="flex flex-col items-center gap-4">
                 <div
-                    class="w-20 h-20 rounded-full bg-gradient-to-tr from-blue-500 to-cyan-400 p-1 shadow-lg shadow-blue-500/20">
+                    class="w-20 h-20 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-400 p-1 shadow-lg shadow-emerald-500/20">
                     <img src="assets/Perfil_navbar.webp" alt="Adrián Alvarez"
                         class="w-full h-full rounded-full object-cover bg-white dark:bg-slate-800">
                 </div>
@@ -127,7 +128,7 @@
             <ul class="flex flex-col gap-2">
                 <li>
                     <a href="#about"
-                        class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-600 hover:text-white dark:hover:bg-blue-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-blue-500/30"
+                        class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-emerald-500/30"
                         onclick="if(window.innerWidth < 1024) toggleMobileMenu()">
                         <i data-lucide="user" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
                         <span data-i18n="nav_about">Quién Soy</span>
@@ -135,7 +136,7 @@
                 </li>
                 <li>
                     <a href="#tech"
-                        class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-600 hover:text-white dark:hover:bg-blue-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-blue-500/30"
+                        class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-emerald-500/30"
                         onclick="if(window.innerWidth < 1024) toggleMobileMenu()">
                         <i data-lucide="cpu" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
                         <span data-i18n="nav_tech">Tecnologías</span>
@@ -143,7 +144,7 @@
                 </li>
                 <li>
                     <a href="#experience"
-                        class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-600 hover:text-white dark:hover:bg-blue-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-blue-500/30"
+                        class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-emerald-500/30"
                         onclick="if(window.innerWidth < 1024) toggleMobileMenu()">
                         <i data-lucide="briefcase" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
                         <span data-i18n="nav_exp">Experiencia</span>
@@ -151,7 +152,7 @@
                 </li>
                 <li>
                     <a href="#projects"
-                        class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-600 hover:text-white dark:hover:bg-blue-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-blue-500/30"
+                        class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-emerald-500/30"
                         onclick="if(window.innerWidth < 1024) toggleMobileMenu()">
                         <i data-lucide="code" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
                         <span data-i18n="nav_projects">Proyectos</span>
@@ -161,11 +162,11 @@
 
             <!-- CV Download -->
             <div class="py-4 border-y border-slate-100 dark:border-slate-800 my-2">
-                <button
-                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white transition-all group font-bold shadow-sm cursor-pointer">
+                <a href="assets/CV-Adrian-Alvarez-2026.pdf" download="CV-Adrian-Alvarez-2026.pdf"
+                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all group font-bold shadow-sm cursor-pointer">
                     <i data-lucide="download" class="w-5 h-5 group-hover:bounce-custom transition-transform"></i>
                     <span data-i18n="nav_cv">Descargar CV</span>
-                </button>
+                </a>
             </div>
         </div>
 
@@ -174,12 +175,12 @@
             <div
                 class="flex items-center justify-around bg-slate-200 dark:bg-slate-800/80 p-2 rounded-2xl border-2 border-slate-300 dark:border-slate-700 shadow-sm transition-all">
                 <button onclick="toggleDarkMode()" aria-label="Cambiar tema"
-                    class="p-2 rounded-xl bg-white dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all shadow-sm group cursor-pointer">
+                    class="p-2 rounded-xl bg-white dark:bg-slate-700 hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-600 transition-all shadow-sm group cursor-pointer">
                     <i data-lucide="moon" id="theme-icon"
                         class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
                 </button>
                 <button onclick="toggleLanguage()" aria-label="Cambiar idioma"
-                    class="p-2 rounded-xl bg-white dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all shadow-sm font-bold text-xs uppercase group cursor-pointer">
+                    class="p-2 rounded-xl bg-white dark:bg-slate-700 hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-600 transition-all shadow-sm font-bold text-xs uppercase group cursor-pointer">
                     <span id="lang-text" class="group-hover:scale-110 transition-transform inline-block">ES</span>
                 </button>
             </div>
@@ -197,7 +198,7 @@
                     </svg>
                 </a>
                 <a href="https://www.linkedin.com/in/adnalvarez" target="_blank" rel="noopener noreferrer"
-                    class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-blue-600 hover:bg-white dark:hover:bg-slate-700 transition-all shadow-sm"
+                    class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-emerald-600 hover:bg-white dark:hover:bg-slate-700 transition-all shadow-sm"
                     aria-label="Linkedin">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -237,11 +238,11 @@
 
                 <div class="flex-1">
                     <div
-                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold mb-6 w-fit">
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-sm font-bold mb-6 w-fit">
                         <span class="relative flex h-2 w-2">
                             <span
-                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                         </span>
                         <span data-i18n="badge_available">Disponible para proyectos Android</span>
                     </div>
@@ -250,10 +251,10 @@
                         <h2 class="text-[32px] md:text-5xl lg:text-7xl font-bold mb-8 leading-tight">
                             <span data-i18n="about_title_1">Hola, soy</span> <br />
                             <span id="typewriter"
-                                class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400 inline-block relative">Adrián
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-400 inline-block relative">Adrián
                                 Alvarez</span>
                             <span
-                                class="typewriter-cursor inline-block w-1 h-8 md:h-12 lg:h-16 bg-blue-600 ml-1 align-middle"></span>
+                                class="typewriter-cursor inline-block w-1 h-8 md:h-12 lg:h-16 bg-emerald-600 ml-1 align-middle"></span>
                             <br />
                             <span class="text-2xl md:text-3xl lg:text-5xl" data-i18n="about_title_2">Android
                                 Developer.</span>
@@ -267,22 +268,22 @@
                     </p>
 
                     <p class="flex items-center gap-2 text-slate-600 dark:text-slate-300 mb-10 font-medium">
-                        <i data-lucide="map-pin" class="w-4.5 h-4.5 text-blue-500"></i> Medellín, Colombia
+                        <i data-lucide="map-pin" class="w-4.5 h-4.5 text-emerald-500"></i> Medellín, Colombia
                     </p>
 
                     <div class="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:gap-4">
                         <button onclick="toggleModal(true)"
-                            class="px-4 py-3 md:px-8 md:py-4 bg-blue-600 text-white rounded-2xl font-bold text-sm md:text-base hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 cursor-pointer"
+                            class="px-4 py-3 md:px-8 md:py-4 bg-emerald-600 text-white rounded-2xl font-bold text-sm md:text-base hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-500/20 cursor-pointer"
                             data-i18n="btn_contact">Contrátame</button>
                         <a href="#projects"
-                            class="px-4 py-3 md:px-8 md:py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold text-sm md:text-base text-center hover:border-blue-500 transition-all"
+                            class="px-4 py-3 md:px-8 md:py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold text-sm md:text-base text-center hover:border-emerald-500 transition-all"
                             data-i18n="btn_projects">Proyectos</a>
                     </div>
                 </div>
 
                 <div class="flex-1 flex justify-center">
                     <div
-                        class="relative w-full max-w-md aspect-square rounded-[3rem] overflow-hidden bg-gradient-to-br from-blue-500/20 to-cyan-400/20 border border-white/20 backdrop-blur-sm shadow-2xl animate-float">
+                        class="relative w-full max-w-md aspect-square rounded-[3rem] overflow-hidden bg-gradient-to-br from-emerald-500/20 to-teal-400/20 border border-white/20 backdrop-blur-sm shadow-2xl animate-float">
                         <img src="assets/hero_avatar.webp" alt="Android Developer Avatar" fetchpriority="high"
                             width="800" height="800" class="w-full h-full object-cover">
                         <div
@@ -296,7 +297,7 @@
             <!-- Tech Stack Section -->
             <section id="tech" class="py-20 border-t border-slate-200 dark:border-slate-800">
                 <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
-                    <span class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white"><i
+                    <span class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-white"><i
                             data-lucide="cpu" class="w-5 h-5"></i></span>
                     <span data-i18n="tech_title">Stack Tecnológico</span>
                 </h2>
@@ -304,61 +305,61 @@
                 <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6 mb-16">
                     <!-- Tech Items -->
                     <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
+                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
                         <div class="text-purple-500 group-hover:scale-110 transition-transform"><i data-lucide="zap"
                                 class="w-6 h-6 md:w-10 md:h-10"></i></div>
                         <span class="text-[10px] md:text-sm font-bold">Kotlin</span>
                     </div>
                     <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
+                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
                         <div class="text-green-500 group-hover:scale-110 transition-transform"><i data-lucide="layout"
                                 class="w-6 h-6 md:w-10 md:h-10"></i></div>
                         <span class="text-[10px] md:text-sm font-bold">Compose</span>
                     </div>
                     <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
+                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
                         <div class="text-green-600 group-hover:scale-110 transition-transform"><i
                                 data-lucide="smartphone" class="w-6 h-6 md:w-10 md:h-10"></i></div>
                         <span class="text-[10px] md:text-sm font-bold">SDK</span>
                     </div>
                     <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
-                        <div class="text-blue-500 group-hover:scale-110 transition-transform"><i data-lucide="zap"
+                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
+                        <div class="text-emerald-500 group-hover:scale-110 transition-transform"><i data-lucide="zap"
                                 class="w-6 h-6 md:w-10 md:h-10"></i></div>
                         <span class="text-[10px] md:text-sm font-bold">Coroutines</span>
                     </div>
                     <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
+                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
                         <div class="text-cyan-500 group-hover:scale-110 transition-transform"><i data-lucide="activity"
                                 class="w-6 h-6 md:w-10 md:h-10"></i></div>
                         <span class="text-[10px] md:text-sm font-bold">Flow</span>
                     </div>
                     <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
-                        <div class="text-blue-600 group-hover:scale-110 transition-transform"><i data-lucide="code-2"
+                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
+                        <div class="text-emerald-600 group-hover:scale-110 transition-transform"><i data-lucide="code-2"
                                 class="w-6 h-6 md:w-10 md:h-10"></i></div>
                         <span class="text-[10px] md:text-sm font-bold">Clean</span>
                     </div>
                     <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
+                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
                         <div class="text-indigo-400 group-hover:scale-110 transition-transform"><i data-lucide="box"
                                 class="w-6 h-6 md:w-10 md:h-10"></i></div>
                         <span class="text-[10px] md:text-sm font-bold">MVVM</span>
                     </div>
                     <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
+                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
                         <div class="text-yellow-600 group-hover:scale-110 transition-transform"><i data-lucide="layers"
                                 class="w-6 h-6 md:w-10 md:h-10"></i></div>
                         <span class="text-[10px] md:text-sm font-bold">Hilt</span>
                     </div>
                     <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
+                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
                         <div class="text-slate-400 group-hover:scale-110 transition-transform"><i data-lucide="database"
                                 class="w-6 h-6 md:w-10 md:h-10"></i></div>
                         <span class="text-[10px] md:text-sm font-bold">Room</span>
                     </div>
                     <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
+                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
                         <div class="text-orange-500 group-hover:scale-110 transition-transform"><i data-lucide="flame"
                                 class="w-6 h-6 md:w-10 md:h-10"></i></div>
                         <span class="text-[10px] md:text-sm font-bold">Firebase</span>
@@ -367,24 +368,24 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div
-                        class="p-8 bg-blue-50 dark:bg-blue-900/10 rounded-[2rem] border border-blue-100 dark:border-blue-800">
+                        class="p-8 bg-emerald-50 dark:bg-emerald-900/10 rounded-[2rem] border border-emerald-100 dark:border-emerald-800">
                         <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i data-lucide="check-circle"
-                                class="text-blue-500"></i><span data-i18n="specialties_title">Especialidades</span></h3>
+                                class="text-emerald-500"></i><span data-i18n="specialties_title">Especialidades</span></h3>
                         <ul class="space-y-4 text-slate-600 dark:text-slate-400 text-lg">
                             <li class="flex items-center gap-3"><span
-                                    class="w-2 h-2 rounded-full bg-blue-500"></span><span data-i18n="spec_1">Desarrollo
+                                    class="w-2 h-2 rounded-full bg-emerald-500"></span><span data-i18n="spec_1">Desarrollo
                                     Android Nativo</span></li>
                             <li class="flex items-center gap-3"><span
-                                    class="w-2 h-2 rounded-full bg-blue-500"></span><span data-i18n="spec_2">UI
+                                    class="w-2 h-2 rounded-full bg-emerald-500"></span><span data-i18n="spec_2">UI
                                     Declarativa (Compose)</span></li>
                             <li class="flex items-center gap-3"><span
-                                    class="w-2 h-2 rounded-full bg-blue-500"></span><span data-i18n="spec_3">Consumo de
+                                    class="w-2 h-2 rounded-full bg-emerald-500"></span><span data-i18n="spec_3">Consumo de
                                     APIs REST</span></li>
                             <li class="flex items-center gap-3"><span
-                                    class="w-2 h-2 rounded-full bg-blue-500"></span><span
+                                    class="w-2 h-2 rounded-full bg-emerald-500"></span><span
                                     data-i18n="spec_4">Persistencia de Datos (Room)</span></li>
                             <li class="flex items-center gap-3"><span
-                                    class="w-2 h-2 rounded-full bg-blue-500"></span><span data-i18n="spec_5">Testing
+                                    class="w-2 h-2 rounded-full bg-emerald-500"></span><span data-i18n="spec_5">Testing
                                     (JUnit)</span></li>
                         </ul>
                     </div>
@@ -394,17 +395,17 @@
                                 class="text-slate-500"></i><span data-i18n="tools_title">Otras Herramientas</span></h3>
                         <div class="grid grid-cols-2 gap-4">
                             <div
-                                class="tech-card flex flex-col items-center gap-2 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
+                                class="tech-card flex flex-col items-center gap-2 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
                                 <i data-lucide="cpu" class="text-green-500 w-6 h-6"></i>
                                 <span class="text-xs font-bold text-center">Android Studio</span>
                             </div>
                             <div
-                                class="tech-card flex flex-col items-center gap-2 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
+                                class="tech-card flex flex-col items-center gap-2 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
                                 <i data-lucide="git-branch" class="text-orange-600 w-6 h-6"></i>
                                 <span class="text-xs font-bold text-center">Git / GitHub</span>
                             </div>
                             <div
-                                class="tech-card flex flex-col items-center gap-2 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group">
+                                class="tech-card flex flex-col items-center gap-2 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
                                 <i data-lucide="check-circle" class="text-red-500 w-6 h-6"></i>
                                 <span class="text-xs font-bold text-center">JUnit + MockK</span>
                             </div>
@@ -416,34 +417,40 @@
             <!-- Experience Section -->
             <section id="experience" class="py-20 border-t border-slate-200 dark:border-slate-800">
                 <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
-                    <span class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white"><i
-                            data-lucide="smartphone" class="w-5 h-5"></i></span>
-                    <span data-i18n="exp_title">Experiencia Android</span>
+                    <span class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-white"><i
+                            data-lucide="briefcase" class="w-5 h-5"></i></span>
+                    <span data-i18n="exp_title">Experiencia</span>
                 </h2>
                 <div class="space-y-12">
                     <div
-                        class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group hover:border-blue-500 transition-colors">
+                        class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group hover:border-emerald-500 transition-colors">
                         <div
-                            class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-800 group-hover:bg-blue-500 transition-colors border-4 border-white dark:border-slate-950">
+                            class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-800 group-hover:bg-emerald-500 transition-colors border-4 border-white dark:border-slate-950">
                         </div>
-                        <div class="mb-1 text-sm font-bold text-blue-600" data-i18n="exp_date_1">2022 - Presente</div>
-                        <h3 class="text-xl font-bold">Senior Android Developer</h3>
-                        <p class="text-slate-600 dark:text-slate-300 mb-4 font-medium">Tech Solutions Medellín</p>
-                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="exp_desc_1">Liderazgo
-                            técnico en aplicaciones móviles nativas. Implementación de Jetpack Compose y Clean
-                            Architecture para mejorar la escalabilidad y mantenibilidad.</p>
+                        <div class="mb-1 text-sm font-bold text-emerald-600" data-i18n="exp_date_1">Agosto 2021 - Presente</div>
+                        <h3 class="text-xl font-bold">Desarrollador de software</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mb-4 font-medium">Freelance | Independiente</p>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="exp_desc_1">Desarrollo en Java y Kotlin, aplicando MVVM y Clean Architecture. Uso avanzado de Android SDK, Jetpack y Compose. Integración con APIs REST y Firebase.</p>
                     </div>
                     <div
-                        class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group hover:border-blue-500 transition-colors">
+                        class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group hover:border-emerald-500 transition-colors">
                         <div
-                            class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-800 group-hover:bg-blue-500 transition-colors border-4 border-white dark:border-slate-950">
+                            class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-800 group-hover:bg-emerald-500 transition-colors border-4 border-white dark:border-slate-950">
                         </div>
-                        <div class="mb-1 text-sm font-bold text-blue-600" data-i18n="exp_date_2">2020 - 2022</div>
-                        <h3 class="text-xl font-bold">Software Engineer - Mobile</h3>
-                        <p class="text-slate-600 dark:text-slate-300 mb-4 font-medium">App Factory</p>
-                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="exp_desc_2">Desarrollo
-                            de módulos compartidos en Kotlin Multiplatform y optimización de consumo de red mediante
-                            Retrofit y Corrutinas.</p>
+                        <div class="mb-1 text-sm font-bold text-emerald-600" data-i18n="exp_date_2">Febrero 2021 - Marzo 2024</div>
+                        <h3 class="text-xl font-bold">Asesor soporte técnico</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mb-4 font-medium">Webhelp</p>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="exp_desc_2">Soporte técnico y atención al cliente para herramientas y servicios digitales.</p>
+                    </div>
+                    <div
+                        class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group hover:border-emerald-500 transition-colors">
+                        <div
+                            class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-800 group-hover:bg-emerald-500 transition-colors border-4 border-white dark:border-slate-950">
+                        </div>
+                        <div class="mb-1 text-sm font-bold text-emerald-600" data-i18n="exp_date_3">Agosto 2020 - Agosto 2021</div>
+                        <h3 class="text-xl font-bold">Junior Web Developer</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mb-4 font-medium">Target Medios</p>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="exp_desc_3">Desarrollo full-stack de aplicaciones usando HTML5, NodeJS, React y Kotlin. Gestión de bases de datos relacionales y optimización de rendimiento. Implementación de pruebas unitarias con JUnit y Espresso.</p>
                     </div>
                 </div>
             </section>
@@ -451,9 +458,9 @@
             <!-- Projects Section -->
             <section id="projects" class="py-20 border-t border-slate-200 dark:border-slate-800">
                 <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
-                    <span class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white"><i
+                    <span class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-white"><i
                             data-lucide="code-2" class="w-5 h-5"></i></span>
-                    <span data-i18n="projects_title">Proyectos Android</span>
+                    <span data-i18n="projects_title">Proyectos</span>
                 </h2>
                 <div id="projects-grid" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
                     <!-- Project 1: Modern Portfolio -->
@@ -684,25 +691,25 @@
         class="fixed top-8 right-8 z-[60] transition-all duration-500 opacity-100 pointer-events-auto">
         <button onclick="toggleModal(true)" class="relative group cursor-pointer">
             <div
-                class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full md:rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-pulse">
+                class="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-teal-400 rounded-full md:rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-pulse">
             </div>
             <div
                 class="relative w-14 h-14 md:w-auto md:h-auto md:px-6 md:py-3.5 bg-white dark:bg-slate-900 rounded-full md:rounded-2xl flex items-center justify-center gap-3 border-4 border-transparent md:border-none shadow-xl">
                 <span class="hidden md:flex h-2.5 w-2.5 relative">
                     <span
-                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                 </span>
                 <span class="hidden md:inline text-slate-800 dark:text-white font-bold text-sm tracking-wide"
                     data-i18n="nav_contact">Contacto</span>
-                <i data-lucide="mail" class="text-blue-500 w-6 h-6 md:w-5 md:h-5"></i>
+                <i data-lucide="mail" class="text-emerald-500 w-6 h-6 md:w-5 md:h-5"></i>
             </div>
         </button>
     </div>
 
     <!-- Scroll to Top -->
     <button id="scroll-to-top"
-        class="fixed bottom-8 right-8 z-[60] w-14 h-14 flex items-center justify-center bg-blue-600 text-white rounded-full shadow-2xl hover:bg-blue-700 transition-all border-4 border-white dark:border-slate-950 group opacity-0 pointer-events-none translate-y-10 cursor-pointer"
+        class="fixed bottom-8 right-8 z-[60] w-14 h-14 flex items-center justify-center bg-emerald-600 text-white rounded-full shadow-2xl hover:bg-emerald-700 transition-all border-4 border-white dark:border-slate-950 group opacity-0 pointer-events-none translate-y-10 cursor-pointer"
         aria-label="Scroll to top">
         <i data-lucide="triangle" class="w-6 h-6 fill-current"></i>
     </button>
@@ -729,7 +736,7 @@
         <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md" onclick="toggleModal(false)"></div>
         <div
             class="relative bg-white dark:bg-slate-900 w-full max-w-lg rounded-[2.5rem] shadow-2xl p-8 lg:p-12 border border-white/20 overflow-hidden transform scale-95 transition-all duration-300">
-            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 to-cyan-400"></div>
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-emerald-500 to-teal-400"></div>
             <button onclick="toggleModal(false)" aria-label="Cerrar modal"
                 class="absolute top-6 right-6 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                 <i data-lucide="x" class="w-6 h-6"></i>
@@ -744,23 +751,23 @@
                 <div class="flex flex-col gap-2">
                     <label for="name" class="text-sm font-semibold" data-i18n="form_name">Nombre</label>
                     <input type="text" id="name" name="name" autocomplete="name"
-                        class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                        class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-emerald-500 outline-none transition-all"
                         required>
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="email" class="text-sm font-semibold" data-i18n="form_email">Email</label>
                     <input type="email" id="email" name="email" autocomplete="email"
-                        class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                        class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-emerald-500 outline-none transition-all"
                         required>
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="message" class="text-sm font-semibold" data-i18n="form_message">Mensaje</label>
                     <textarea id="message" name="message" rows="4"
-                        class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all resize-none"
+                        class="bg-slate-50 dark:bg-slate-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-emerald-500 outline-none transition-all resize-none"
                         required></textarea>
                 </div>
                 <button type="submit" id="form-submit-btn"
-                    class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-500/30 transition-all transform hover:scale-[1.02]"
+                    class="mt-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-emerald-500/30 transition-all transform hover:scale-[1.02]"
                     data-i18n="form_submit">
                     Enviar Mensaje
                 </button>
