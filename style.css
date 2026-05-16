@@ -66,6 +66,15 @@ section {
     animation: float 6s ease-in-out infinite;
 }
 
+@keyframes bounceSlow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.animate-bounce-slow {
+    animation: bounceSlow 3s ease-in-out infinite;
+}
+
 /* Glassmorphism */
 .glass {
     background: rgba(255, 255, 255, 0.7);
@@ -142,9 +151,15 @@ section {
     opacity: 1;
 }
 
+#intro-name, #intro-sub {
+    transform: translateY(150%) !important;
+    opacity: 0 !important;
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
 #intro-name.active, #intro-sub.active {
-    transform: translateY(0);
-    opacity: 1;
+    transform: translateY(0) !important;
+    opacity: 1 !important;
 }
 
 @keyframes spin-reverse {
@@ -184,7 +199,6 @@ section {
 #intro-name, #intro-sub {
     display: inline-block;
     will-change: transform;
-    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 @keyframes fragment-move {

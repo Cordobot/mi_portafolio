@@ -157,10 +157,6 @@ function startIntro() {
 
     // 3. Reveal Subtitle
     setTimeout(() => {
-        if (window.innerWidth < 768) {
-            sub.textContent = "EXPERIENCIA";
-            sub.style.letterSpacing = "0.4em";
-        }
         sub.classList.add('active');
     }, 1800);
 

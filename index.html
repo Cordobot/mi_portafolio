@@ -29,7 +29,7 @@
 
     <!-- Preload LCP Image -->
     <link rel="preload" as="image" href="assets/hero_avatar.webp" fetchpriority="high">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 
 <body
@@ -73,18 +73,21 @@
             </div>
 
             <!-- Staggered Text Reveal -->
-            <div class="mt-12 flex flex-col items-center gap-2">
+            <div class="mt-12 flex flex-col items-center gap-4">
                 <div class="relative overflow-hidden h-12 md:h-16">
                     <h2 id="intro-name"
-                        class="text-3xl md:text-5xl font-black text-white tracking-[0.4em] translate-y-[150%] opacity-0 transition-all duration-1000 ease-out">
-                        ADRIÁN ALVAREZ
+                        class="text-3xl md:text-5xl font-bold text-white tracking-[0.05em]">
+                        Adrián Alvarez
                     </h2>
                 </div>
-                <div class="relative overflow-hidden h-6">
-                    <p id="intro-sub"
-                        class="text-emerald-400 font-mono text-sm tracking-[0.2em] translate-y-[150%] opacity-0 transition-all duration-1000 delay-300 ease-out">
-                        ANDROID DEVELOPER
-                    </p>
+                <div class="relative overflow-hidden h-8">
+                    <div id="intro-sub"
+                        class="flex items-center gap-2 text-emerald-400 font-mono text-xs md:text-sm tracking-[0.4em] delay-300 whitespace-nowrap">
+                        <svg class="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.523 15.341c.319-.186.541-.527.541-.918 0-.541-.439-.98-.98-.98-.192 0-.369.054-.52.149a7.195 7.195 0 0 0-4.323-1.577v-1.73h.967c.305 0 .553-.248.553-.553s-.248-.553-.553-.553h-.967v-.647c0-.305-.248-.553-.553-.553s-.553.248-.553.553v.647h-.967c-.305 0-.553.248-.553.553s.248.553.553.553h.967v1.73A7.195 7.195 0 0 0 6.812 13.592c-.151-.095-.328-.149-.52-.149-.541 0-.98.439-.98.98 0 .391.222.732.541.918A7.228 7.228 0 0 0 5.086 18.455c0 .144.007.286.019.427h13.166c.012-.141.019-.283.019-.427 0-1.123-.281-2.182-.767-3.114zM8.636 16.892c-.393 0-.711-.318-.711-.711s.318-.711.711-.711.711.318.711.711-.318.711-.711.711zm6.104 0c-.393 0-.711-.318-.711-.711s.318-.711.711-.711.711.318.711.711-.318.711-.711.711z" />
+                        </svg>
+                        <span>ANDROID DEVELOPER</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -256,8 +259,12 @@
                             <span
                                 class="typewriter-cursor inline-block w-1 h-8 md:h-12 lg:h-16 bg-emerald-600 ml-1 align-middle"></span>
                             <br />
-                            <span class="text-2xl md:text-3xl lg:text-5xl" data-i18n="about_title_2">Android
-                                Developer.</span>
+                            <div class="flex items-center gap-2 mt-4 opacity-0 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700 fill-mode-forwards">
+                                <svg class="w-6 h-6 md:w-8 md:h-8 text-emerald-500 flex-shrink-0 animate-bounce-slow" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.523 15.341c.319-.186.541-.527.541-.918 0-.541-.439-.98-.98-.98-.192 0-.369.054-.52.149a7.195 7.195 0 0 0-4.323-1.577v-1.73h.967c.305 0 .553-.248.553-.553s-.248-.553-.553-.553h-.967v-.647c0-.305-.248-.553-.553-.553s-.553.248-.553.553v.647h-.967c-.305 0-.553.248-.553.553s.248.553.553.553h.967v1.73A7.195 7.195 0 0 0 6.812 13.592c-.151-.095-.328-.149-.52-.149-.541 0-.98.439-.98.98 0 .391.222.732.541.918A7.228 7.228 0 0 0 5.086 18.455c0 .144.007.286.019.427h13.166c.012-.141.019-.283.019-.427 0-1.123-.281-2.182-.767-3.114zM8.636 16.892c-.393 0-.711-.318-.711-.711s.318-.711.711-.711.711.318.711.711-.318.711-.711.711zm6.104 0c-.393 0-.711-.318-.711-.711s.318-.711.711-.711.711.318.711.711-.318.711-.711.711z" />
+                                </svg>
+                                <span class="text-xl md:text-2xl lg:text-3xl font-mono text-emerald-400 tracking-[0.2em]" data-i18n="about_title_2">Android Developer.</span>
+                            </div>
                         </h2>
                     </div>
 
