@@ -32,12 +32,4 @@ Al ser un sitio estático puro, puede ser desplegado instantáneamente en:
 - Netlify
 - O simplemente abriendo `index.html` en cualquier navegador.
 
-## 📩 Contacto
-
-¿Tienes un proyecto en mente? ¡Hablemos!
-- **Email**: Adnalvarez95@gmail.com
-- **GitHub**: [Cordobot](https://github.com/Cordobot)
-- **LinkedIn**: [Adrián Alvarez](#)
-
----
 © 2026 Adrián Alvarez. Todos los derechos reservados.
