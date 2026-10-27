@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Pronóstika">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0F2027"/>
+      <stop offset=".5" stop-color="#203A43"/>
+      <stop offset="1" stop-color="#2C5364"/>
+    </linearGradient>
+    <radialGradient id="sun" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FDE68A"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <circle cx="520" cy="60" r="140" fill="#fff" opacity=".04"/>
+  <circle cx="200" cy="130" r="54" fill="url(#sun)"/>
+  <g fill="#fff">
+    <circle cx="232" cy="168" r="38" opacity=".95"/>
+    <circle cx="276" cy="150" r="48" opacity=".95"/>
+    <circle cx="318" cy="172" r="34" opacity=".95"/>
+    <rect x="200" y="168" width="150" height="38" rx="19" opacity=".95"/>
+  </g>
+  <text x="394" y="150" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#fff">24°</text>
+  <text x="396" y="182" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="18" fill="#fff" opacity=".7">Bogotá, CO · Nubes</text>
+  <g font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" fill="#fff" text-anchor="middle">
+    <rect x="80" y="246" width="480" height="78" rx="20" fill="#fff" opacity=".1"/>
+    <text x="128" y="276" opacity=".7">Hoy</text><text x="128" y="306" font-weight="700">22° / 13°</text>
+    <text x="224" y="276" opacity=".7">Mar</text><text x="224" y="306" font-weight="700">21° / 12°</text>
+    <text x="320" y="276" opacity=".7">Mié</text><text x="320" y="306" font-weight="700">19° / 12°</text>
+    <text x="416" y="276" opacity=".7">Jue</text><text x="416" y="306" font-weight="700">23° / 14°</text>
+    <text x="512" y="276" opacity=".7">Vie</text><text x="512" y="306" font-weight="700">24° / 13°</text>
+  </g>
+  <text x="32" y="48" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#fff" letter-spacing="2">Pronóstika</text>
+</svg>
