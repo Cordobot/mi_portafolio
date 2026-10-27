@@ -27,10 +27,6 @@ const translations = {
         form_success_title: "¡Mensaje Enviado!",
         form_success_desc: "Gracias por contactarme. Te responderé lo antes posible.",
         btn_close: "Cerrar",
-        p1_title: "Modern Portfolio",
-        p1_desc: "Mi portafolio personal interactivo con animaciones premium.",
-        p2_title: "my-portfolio.apk",
-        p2_desc: "App Android usando Kotlin, Jetpack Compose y Retrofit.",
         p3_title: "Arbarrio",
         p3_desc: "App de arriendos en barrios periféricos: publica inmuebles, filtra, guarda favoritos y ve el mapa.",
         p4_title: "Pronóstika",
@@ -56,8 +52,7 @@ const translations = {
         spec_3: "Consumo de APIs REST",
         spec_4: "Persistencia de Datos (Room)",
         spec_5: "Testing (JUnit)",
-        btn_view_github: "Ver en GitHub",
-        btn_request_code: "Solicitar código"
+        btn_view_github: "Ver en GitHub"
     },
     en: {
         nav_about: "About Me",
@@ -87,10 +82,6 @@ const translations = {
         form_success_title: "Message Sent!",
         form_success_desc: "Thank you for reaching out. I will get back to you as soon as possible.",
         btn_close: "Close",
-        p1_title: "Modern Portfolio",
-        p1_desc: "Interactive personal portfolio with premium animations.",
-        p2_title: "my-portfolio.apk",
-        p2_desc: "Android app using Kotlin, Jetpack Compose and Retrofit.",
         p3_title: "Arbarrio",
         p3_desc: "Rental app for outlying neighborhoods: list properties, filter, save favorites and browse the map.",
         p4_title: "Pronóstika",
@@ -116,8 +107,7 @@ const translations = {
         spec_3: "REST API Consumption",
         spec_4: "Data Persistence (Room)",
         spec_5: "Testing (JUnit)",
-        btn_view_github: "View on GitHub",
-        btn_request_code: "Request code"
+        btn_view_github: "View on GitHub"
     }
 };
 
