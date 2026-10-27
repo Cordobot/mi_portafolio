@@ -8,6 +8,8 @@
     <meta name="description"
         content="Portfolio profesional de Adrián Alvarez, Android Developer especializado en Kotlin y Jetpack Compose.">
 
+    <meta name="theme-color" content="#10b981">
+
     <!-- Tailwind CSS -->
     <link href="./style_tailwind.css" rel="stylesheet">
 
@@ -25,6 +27,10 @@
 
     <!-- Scripts (Deferred) -->
     <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="theme.js" defer></script>
+    <script src="projects.js" defer></script>
+    <script src="stack.js" defer></script>
+    <script src="snippets.js" defer></script>
     <script src="script.js" defer></script>
 
     <!-- Preload LCP Image -->
@@ -93,14 +99,46 @@
         </div>
     </div>
 
-    <!-- Mobile Hamburger Button -->
-    <button onclick="toggleMobileMenu()" aria-label="Menu"
-        class="lg:hidden fixed top-6 left-6 z-[110] p-3 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl text-emerald-600">
-        <i data-lucide="menu" id="menu-icon"></i>
-    </button>
+    <!-- Android status bar -->
+    <div id="status-bar" aria-hidden="true"
+        class="fixed top-0 inset-x-0 z-[120] h-7 px-4 lg:px-6 flex items-center justify-between bg-slate-950 text-white text-[11px] font-semibold tracking-wide select-none">
+        <span id="status-time" class="tabular-nums">12:00</span>
+        <span class="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-black ring-1 ring-white/15"></span>
+        <span class="flex items-center gap-1.5">
+            <i data-lucide="signal" class="w-3.5 h-3.5"></i>
+            <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+            <span id="status-battery" class="tabular-nums hidden"></span>
+            <i data-lucide="battery-full" id="status-battery-icon" class="w-4 h-4"></i>
+        </span>
+    </div>
+
+    <!-- Bottom navigation (mobile) -->
+    <nav id="bottom-nav" aria-label="Navegación"
+        class="lg:hidden fixed bottom-0 inset-x-0 z-[95] grid grid-cols-5 h-20 pb-[env(safe-area-inset-bottom)] bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800">
+        <a href="#about" data-nav="about" data-ripple class="bnav-item active">
+            <span class="bnav-pill"><i data-lucide="house" class="w-5 h-5"></i></span>
+            <span data-i18n="bnav_home">Inicio</span>
+        </a>
+        <a href="#tech" data-nav="tech" data-ripple class="bnav-item">
+            <span class="bnav-pill"><i data-lucide="cpu" class="w-5 h-5"></i></span>
+            <span data-i18n="bnav_stack">Stack</span>
+        </a>
+        <a href="#projects" data-nav="projects" data-ripple class="bnav-item">
+            <span class="bnav-pill"><i data-lucide="smartphone" class="w-5 h-5"></i></span>
+            <span data-i18n="bnav_apps">Apps</span>
+        </a>
+        <a href="#arch" data-nav="arch" data-ripple class="bnav-item">
+            <span class="bnav-pill"><i data-lucide="braces" class="w-5 h-5"></i></span>
+            <span data-i18n="bnav_code">Código</span>
+        </a>
+        <button type="button" onclick="toggleMobileMenu()" data-ripple class="bnav-item" aria-label="Menu">
+            <span class="bnav-pill"><i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i></span>
+            <span data-i18n="bnav_more">Más</span>
+        </button>
+    </nav>
 
     <!-- Mobile Overlay -->
-    <div id="mobile-overlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[90] hidden"
+    <div id="mobile-overlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[97] hidden"
         onclick="toggleMobileMenu()"></div>
 
     <!-- Background Waves -->
@@ -113,7 +151,7 @@
 
     <!-- Vertical Navbar -->
     <nav id="navbar"
-        class="fixed left-0 top-0 h-screen w-64 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between p-8 z-[100] transition-transform duration-500 ease-in-out lg:translate-x-0 overflow-hidden">
+        class="fixed left-0 top-7 h-[calc(100vh-1.75rem)] w-64 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between gap-6 p-8 z-[100] transition-transform duration-500 ease-in-out lg:translate-x-0 overflow-y-auto">
         <div class="flex flex-col gap-8">
             <!-- Profile -->
             <div class="flex flex-col items-center gap-4">
@@ -123,8 +161,9 @@
                         class="w-full h-full rounded-full object-cover bg-white dark:bg-slate-800">
                 </div>
                 <h1 class="text-xl font-bold tracking-tight text-center">Adrián Alvarez</h1>
-                <p class="text-[10px] text-slate-600 dark:text-slate-300 font-mono text-center break-all">
-                    Adnalvarez95@gmail.com</p>
+                <button type="button" onclick="copyEmail()" data-ripple title="Copiar correo"
+                    class="text-[10px] text-slate-600 dark:text-slate-300 font-mono text-center break-all px-2 py-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
+                    Adnalvarez95@gmail.com</button>
             </div>
 
             <!-- Nav Links -->
@@ -161,6 +200,14 @@
                         <span data-i18n="nav_projects">Proyectos</span>
                     </a>
                 </li>
+                <li>
+                    <a href="#arch"
+                        class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-900/40 text-slate-600 dark:text-slate-400 transition-all group shadow-sm hover:shadow-emerald-500/30"
+                        onclick="if(window.innerWidth < 1024) toggleMobileMenu()">
+                        <i data-lucide="braces" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                        <span data-i18n="nav_arch">Arquitectura</span>
+                    </a>
+                </li>
             </ul>
 
             <!-- CV Download -->
@@ -175,6 +222,11 @@
 
         <!-- Toggles & Social -->
         <div class="flex flex-col gap-6 mt-auto">
+            <div>
+                <p class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-2">
+                    <i data-lucide="palette" class="w-4 h-4"></i><span data-i18n="palette_title">Color del tema</span></p>
+                <div id="palette-swatches" class="flex justify-between"></div>
+            </div>
             <div
                 class="flex items-center justify-around bg-slate-200 dark:bg-slate-800/80 p-2 rounded-2xl border-2 border-slate-300 dark:border-slate-700 shadow-sm transition-all">
                 <button onclick="toggleDarkMode()" aria-label="Cambiar tema"
@@ -230,7 +282,7 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="lg:ml-64 p-8 lg:p-16 transition-all duration-300">
+    <main class="lg:ml-64 px-5 pt-12 pb-28 md:p-8 lg:p-16 lg:pt-20 transition-all duration-300">
         <div class="max-w-6xl mx-auto">
 
             <!-- Hero Section -->
@@ -278,6 +330,12 @@
                         <i data-lucide="map-pin" class="w-4.5 h-4.5 text-emerald-500"></i> Medellín, Colombia
                     </p>
 
+                    <dl class="grid grid-cols-3 gap-2 md:gap-3 max-w-xl -mt-4 mb-10">
+                        <div class="stat-card"><dt data-i18n="stat_apps">Apps Android</dt><dd id="stat-apps">9</dd></div>
+                        <div class="stat-card"><dt data-i18n="stat_apks">APK instalables</dt><dd id="stat-apks">6</dd></div>
+                        <div class="stat-card"><dt data-i18n="stat_tests">Pruebas automatizadas</dt><dd id="stat-tests">58</dd></div>
+                    </dl>
+
                     <div class="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:gap-4">
                         <button onclick="toggleModal(true)"
                             class="px-4 py-3 md:px-8 md:py-4 bg-emerald-600 text-white rounded-2xl font-bold text-sm md:text-base hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-500/20 cursor-pointer"
@@ -303,75 +361,19 @@
 
             <!-- Tech Stack Section -->
             <section id="tech" class="py-20 border-t border-slate-200 dark:border-slate-800">
-                <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                <h2 class="text-3xl font-bold mb-4 flex items-center gap-4">
                     <span class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-white"><i
                             data-lucide="cpu" class="w-5 h-5"></i></span>
                     <span data-i18n="tech_title">Stack Tecnológico</span>
                 </h2>
+                <p class="text-slate-600 dark:text-slate-300 mb-10 max-w-2xl" data-i18n="tech_hint">Toca una
+                    tecnología para ver los proyectos donde la uso.</p>
 
-                <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6 mb-16">
-                    <!-- Tech Items -->
-                    <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
-                        <div class="text-purple-500 group-hover:scale-110 transition-transform"><i data-lucide="zap"
-                                class="w-6 h-6 md:w-10 md:h-10"></i></div>
-                        <span class="text-[10px] md:text-sm font-bold">Kotlin</span>
-                    </div>
-                    <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
-                        <div class="text-green-500 group-hover:scale-110 transition-transform"><i data-lucide="layout"
-                                class="w-6 h-6 md:w-10 md:h-10"></i></div>
-                        <span class="text-[10px] md:text-sm font-bold">Compose</span>
-                    </div>
-                    <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
-                        <div class="text-green-600 group-hover:scale-110 transition-transform"><i
-                                data-lucide="smartphone" class="w-6 h-6 md:w-10 md:h-10"></i></div>
-                        <span class="text-[10px] md:text-sm font-bold">SDK</span>
-                    </div>
-                    <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
-                        <div class="text-emerald-500 group-hover:scale-110 transition-transform"><i data-lucide="zap"
-                                class="w-6 h-6 md:w-10 md:h-10"></i></div>
-                        <span class="text-[10px] md:text-sm font-bold">Coroutines</span>
-                    </div>
-                    <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
-                        <div class="text-cyan-500 group-hover:scale-110 transition-transform"><i data-lucide="activity"
-                                class="w-6 h-6 md:w-10 md:h-10"></i></div>
-                        <span class="text-[10px] md:text-sm font-bold">Flow</span>
-                    </div>
-                    <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
-                        <div class="text-emerald-600 group-hover:scale-110 transition-transform"><i data-lucide="code-2"
-                                class="w-6 h-6 md:w-10 md:h-10"></i></div>
-                        <span class="text-[10px] md:text-sm font-bold">Clean</span>
-                    </div>
-                    <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
-                        <div class="text-indigo-400 group-hover:scale-110 transition-transform"><i data-lucide="box"
-                                class="w-6 h-6 md:w-10 md:h-10"></i></div>
-                        <span class="text-[10px] md:text-sm font-bold">MVVM</span>
-                    </div>
-                    <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
-                        <div class="text-yellow-600 group-hover:scale-110 transition-transform"><i data-lucide="layers"
-                                class="w-6 h-6 md:w-10 md:h-10"></i></div>
-                        <span class="text-[10px] md:text-sm font-bold">Hilt</span>
-                    </div>
-                    <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
-                        <div class="text-slate-400 group-hover:scale-110 transition-transform"><i data-lucide="database"
-                                class="w-6 h-6 md:w-10 md:h-10"></i></div>
-                        <span class="text-[10px] md:text-sm font-bold">Room</span>
-                    </div>
-                    <div
-                        class="tech-card flex flex-col items-center gap-2 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
-                        <div class="text-orange-500 group-hover:scale-110 transition-transform"><i data-lucide="flame"
-                                class="w-6 h-6 md:w-10 md:h-10"></i></div>
-                        <span class="text-[10px] md:text-sm font-bold">Firebase</span>
-                    </div>
-                </div>
+                <div id="tech-logos" class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-5 mb-12"></div>
+
+                <h3 class="text-lg font-bold mb-4 flex items-center gap-2"><i data-lucide="package"
+                        class="w-5 h-5 text-emerald-500"></i><span data-i18n="libs_title">Jetpack y librerías</span></h3>
+                <div id="tech-libs" class="flex flex-wrap gap-2 mb-16"></div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div
@@ -381,45 +383,30 @@
                         </h3>
                         <ul class="space-y-4 text-slate-600 dark:text-slate-400 text-lg">
                             <li class="flex items-center gap-3"><span
-                                    class="w-2 h-2 rounded-full bg-emerald-500"></span><span
-                                    data-i18n="spec_1">Desarrollo
-                                    Android Nativo</span></li>
+                                    class="w-2 h-2 shrink-0 rounded-full bg-emerald-500"></span><span
+                                    data-i18n="spec_1">Desarrollo Android nativo con Kotlin</span></li>
                             <li class="flex items-center gap-3"><span
-                                    class="w-2 h-2 rounded-full bg-emerald-500"></span><span data-i18n="spec_2">UI
-                                    Declarativa (Compose)</span></li>
+                                    class="w-2 h-2 shrink-0 rounded-full bg-emerald-500"></span><span
+                                    data-i18n="spec_2">UI declarativa con Compose y Material 3</span></li>
                             <li class="flex items-center gap-3"><span
-                                    class="w-2 h-2 rounded-full bg-emerald-500"></span><span data-i18n="spec_3">Consumo
-                                    de
-                                    APIs REST</span></li>
+                                    class="w-2 h-2 shrink-0 rounded-full bg-emerald-500"></span><span
+                                    data-i18n="spec_3">APIs REST y Firebase en tiempo real</span></li>
                             <li class="flex items-center gap-3"><span
-                                    class="w-2 h-2 rounded-full bg-emerald-500"></span><span
-                                    data-i18n="spec_4">Persistencia de Datos (Room)</span></li>
+                                    class="w-2 h-2 shrink-0 rounded-full bg-emerald-500"></span><span
+                                    data-i18n="spec_4">Apps offline-first con Room y DataStore</span></li>
                             <li class="flex items-center gap-3"><span
-                                    class="w-2 h-2 rounded-full bg-emerald-500"></span><span data-i18n="spec_5">Testing
-                                    (JUnit)</span></li>
+                                    class="w-2 h-2 shrink-0 rounded-full bg-emerald-500"></span><span
+                                    data-i18n="spec_6">Trabajo en segundo plano: WorkManager y alarmas</span></li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-2 h-2 shrink-0 rounded-full bg-emerald-500"></span><span
+                                    data-i18n="spec_5">Pruebas con JUnit, MockK y Compose UI Test</span></li>
                         </ul>
                     </div>
                     <div
                         class="p-8 bg-slate-100 dark:bg-slate-800/50 rounded-[2rem] border border-slate-200 dark:border-slate-700">
                         <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i data-lucide="pen-tool"
                                 class="text-slate-500"></i><span data-i18n="tools_title">Otras Herramientas</span></h3>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div
-                                class="tech-card flex flex-col items-center gap-2 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
-                                <i data-lucide="cpu" class="text-green-500 w-6 h-6"></i>
-                                <span class="text-xs font-bold text-center">Android Studio</span>
-                            </div>
-                            <div
-                                class="tech-card flex flex-col items-center gap-2 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
-                                <i data-lucide="git-branch" class="text-orange-600 w-6 h-6"></i>
-                                <span class="text-xs font-bold text-center">Git / GitHub</span>
-                            </div>
-                            <div
-                                class="tech-card flex flex-col items-center gap-2 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-all group">
-                                <i data-lucide="check-circle" class="text-red-500 w-6 h-6"></i>
-                                <span class="text-xs font-bold text-center">JUnit + MockK</span>
-                            </div>
-                        </div>
+                        <div id="tool-logos" class="grid grid-cols-3 gap-4"></div>
                     </div>
                 </div>
             </section>
@@ -479,320 +466,92 @@
 
             <!-- Projects Section -->
             <section id="projects" class="py-20 border-t border-slate-200 dark:border-slate-800">
-                <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                <h2 class="text-3xl font-bold mb-4 flex items-center gap-4">
                     <span class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-white"><i
-                            data-lucide="code-2" class="w-5 h-5"></i></span>
+                            data-lucide="smartphone" class="w-5 h-5"></i></span>
                     <span data-i18n="projects_title">Proyectos</span>
                 </h2>
-                <div id="projects-grid" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
-                    <!-- Project: PokeVerse -->
-                    <div
-                        class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                        <div class="aspect-video overflow-hidden cursor-pointer" onclick="openProjectModal(0)"><img
-                                src="assets/projects/pokeverse.webp" alt="PokeVerse" loading="lazy"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <p class="text-slate-600 dark:text-slate-300 mb-8 max-w-2xl" data-i18n="projects_hint">Pasa el cursor
+                    sobre una app para verla funcionando. Cada una tiene su caso de estudio y las que lo permiten se
+                    instalan con un QR.</p>
+
+                <div id="project-filters" role="toolbar" aria-label="Filtros"
+                    class="no-scrollbar flex gap-2 overflow-x-auto pb-2 mb-8 -mx-1 px-1"></div>
+
+                <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"></div>
+            </section>
+
+            <!-- Architecture Section -->
+            <section id="arch" class="py-20 border-t border-slate-200 dark:border-slate-800">
+                <h2 class="text-3xl font-bold mb-4 flex items-center gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-white"><i
+                            data-lucide="braces" class="w-5 h-5"></i></span>
+                    <span data-i18n="arch_title">Cómo construyo una app</span>
+                </h2>
+                <p class="text-slate-600 dark:text-slate-300 mb-10 max-w-3xl" data-i18n="arch_desc">Todas mis apps siguen
+                    la misma idea: la interfaz solo dibuja un estado, el dominio no sabe nada de Android y los datos
+                    pueden venir de la red o de la caché sin que el resto de la app se entere.</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+                    <!-- Layers -->
+                    <div class="lg:col-span-2 flex flex-col" id="arch-layers">
+                        <div class="arch-layer" data-layer="presentation">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="arch-icon bg-sky-500"><i data-lucide="layout-template" class="w-5 h-5"></i></span>
+                                <div>
+                                    <h3 class="font-bold" data-i18n="layer_ui">Presentación</h3>
+                                    <p class="text-xs font-mono text-slate-500">Compose · ViewModel · StateFlow</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300" data-i18n="layer_ui_desc">Dibuja un
+                                UiState inmutable y envía eventos. Sin lógica de negocio.</p>
                         </div>
-                        <div class="p-2.5 md:p-6">
-                            <div class="flex flex-wrap gap-1 mb-1.5 md:mb-4">
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Clean Arch</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Room</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Hilt</span>
-                            </div>
-                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p7_title">PokeVerse</h3>
-                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight"
-                                data-i18n="p7_desc">Pokédex con los 1025 Pokémon: región, juegos, tipos, debilidades y evoluciones, con caché offline.</p>
-                            <div class="mt-2 md:mt-8 flex justify-center">
-                                <a href="https://github.com/Cordobot/PokeVerse" target="_blank" rel="noopener" class="btn-github"
-                                    aria-label="Ver en GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-github">
-                                        <path
-                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                                        <path d="M9 18c-4.51 2-5-2-7-2" />
-                                    </svg>
-                                    <span data-i18n="btn_view_github">Ver en GitHub</span>
-                                </a>
-                            </div>
+                        <div class="arch-link">
+                            <span class="arch-flow"></span>
+                            <span class="text-[11px] font-mono text-slate-500" data-i18n="link_1">↓ casos de uso · ↑ Flow&lt;T&gt;</span>
                         </div>
-                    </div>
-                    <!-- Project: CriptoPulse -->
-                    <div
-                        class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                        <div class="aspect-video overflow-hidden cursor-pointer" onclick="openProjectModal(1)"><img
-                                src="assets/projects/criptopulse.webp" alt="CriptoPulse" loading="lazy"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="arch-layer" data-layer="domain">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="arch-icon bg-emerald-500"><i data-lucide="brain-circuit" class="w-5 h-5"></i></span>
+                                <div>
+                                    <h3 class="font-bold" data-i18n="layer_domain">Dominio</h3>
+                                    <p class="text-xs font-mono text-slate-500">UseCases · Models · Repository</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300" data-i18n="layer_domain_desc">Kotlin
+                                puro: reglas de negocio e interfaces. Se prueba con JUnit sin emulador.</p>
                         </div>
-                        <div class="p-2.5 md:p-6">
-                            <div class="flex flex-wrap gap-1 mb-1.5 md:mb-4">
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Room</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">DataStore</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Flow</span>
+                        <div class="arch-link">
+                            <span class="arch-flow"></span>
+                            <span class="text-[11px] font-mono text-slate-500" data-i18n="link_2">implementa las interfaces del dominio</span>
+                        </div>
+                        <div class="arch-layer" data-layer="data">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="arch-icon bg-amber-500"><i data-lucide="database" class="w-5 h-5"></i></span>
+                                <div>
+                                    <h3 class="font-bold" data-i18n="layer_data">Datos</h3>
+                                    <p class="text-xs font-mono text-slate-500">Room · Retrofit · Firebase · WorkManager</p>
+                                </div>
                             </div>
-                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p8_title">CriptoPulse</h3>
-                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight"
-                                data-i18n="p8_desc">Precios cripto en tiempo real con caché offline y diseño adaptable a tablets.</p>
-                            <div class="mt-2 md:mt-8 flex justify-center">
-                                <a href="https://github.com/Cordobot/CriptoPulse" target="_blank" rel="noopener" class="btn-github"
-                                    aria-label="Ver en GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-github">
-                                        <path
-                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                                        <path d="M9 18c-4.51 2-5-2-7-2" />
-                                    </svg>
-                                    <span data-i18n="btn_view_github">Ver en GitHub</span>
-                                </a>
-                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300" data-i18n="layer_data_desc">Una sola
+                                fuente de verdad: primero la caché local, después la red.</p>
                         </div>
                     </div>
-                    <!-- Project: Enfoca -->
-                    <div
-                        class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                        <div class="aspect-video overflow-hidden cursor-pointer" onclick="openProjectModal(2)"><img
-                                src="assets/projects/enfoca.webp" alt="Enfoca" loading="lazy"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+
+                    <!-- Code window styled like Android Studio -->
+                    <div class="lg:col-span-3 min-w-0 rounded-2xl overflow-hidden border border-black/40 bg-[#1e1f22] shadow-2xl">
+                        <div class="flex items-center gap-2 px-4 h-9 bg-[#2b2d30] border-b border-black/40">
+                            <span class="w-3 h-3 rounded-full bg-[#ff5f57]"></span>
+                            <span class="w-3 h-3 rounded-full bg-[#febc2e]"></span>
+                            <span class="w-3 h-3 rounded-full bg-[#28c840]"></span>
+                            <span class="ml-3 text-[11px] text-slate-400 font-mono truncate" id="code-path"></span>
                         </div>
-                        <div class="p-2.5 md:p-6">
-                            <div class="flex flex-wrap gap-1 mb-1.5 md:mb-4">
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">WorkManager</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">AlarmManager</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">MockK</span>
-                            </div>
-                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p9_title">Enfoca</h3>
-                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight"
-                                data-i18n="p9_desc">Hábitos con rachas y Pomodoro con notificaciones que llegan aunque la app esté cerrada.</p>
-                            <div class="mt-2 md:mt-8 flex justify-center">
-                                <a href="https://github.com/Cordobot/Enfoca" target="_blank" rel="noopener" class="btn-github"
-                                    aria-label="Ver en GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-github">
-                                        <path
-                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                                        <path d="M9 18c-4.51 2-5-2-7-2" />
-                                    </svg>
-                                    <span data-i18n="btn_view_github">Ver en GitHub</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project: ScanVault -->
-                    <div
-                        class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                        <div class="aspect-video overflow-hidden cursor-pointer" onclick="openProjectModal(3)"><img
-                                src="assets/projects/scanvault.webp" alt="ScanVault" loading="lazy"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        </div>
-                        <div class="p-2.5 md:p-6">
-                            <div class="flex flex-wrap gap-1 mb-1.5 md:mb-4">
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">CameraX</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">ML Kit</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">LeakCanary</span>
-                            </div>
-                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p10_title">ScanVault</h3>
-                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight"
-                                data-i18n="p10_desc">Escáner QR y de barras en el dispositivo: Wi-Fi, contactos, enlaces e historial.</p>
-                            <div class="mt-2 md:mt-8 flex justify-center">
-                                <a href="https://github.com/Cordobot/ScanVault" target="_blank" rel="noopener" class="btn-github"
-                                    aria-label="Ver en GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-github">
-                                        <path
-                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                                        <path d="M9 18c-4.51 2-5-2-7-2" />
-                                    </svg>
-                                    <span data-i18n="btn_view_github">Ver en GitHub</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project: CuentaClara -->
-                    <div
-                        class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                        <div class="aspect-video overflow-hidden cursor-pointer" onclick="openProjectModal(4)"><img
-                                src="assets/projects/cuentaclara.webp" alt="CuentaClara" loading="lazy"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        </div>
-                        <div class="p-2.5 md:p-6">
-                            <div class="flex flex-wrap gap-1 mb-1.5 md:mb-4">
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Firebase</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Firestore</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">FCM</span>
-                            </div>
-                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p11_title">CuentaClara</h3>
-                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight"
-                                data-i18n="p11_desc">Gastos compartidos en tiempo real con Firebase, reglas de seguridad y modo offline.</p>
-                            <div class="mt-2 md:mt-8 flex justify-center">
-                                <a href="https://github.com/Cordobot/CuentaClara" target="_blank" rel="noopener" class="btn-github"
-                                    aria-label="Ver en GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-github">
-                                        <path
-                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                                        <path d="M9 18c-4.51 2-5-2-7-2" />
-                                    </svg>
-                                    <span data-i18n="btn_view_github">Ver en GitHub</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project: Arbarrio -->
-                    <div
-                        class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                        <div class="aspect-video overflow-hidden cursor-pointer" onclick="openProjectModal(5)"><img
-                                src="assets/projects/arbarrio.svg" alt="Arbarrio" loading="lazy"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        </div>
-                        <div class="p-2.5 md:p-6">
-                            <div class="flex flex-wrap gap-1 mb-1.5 md:mb-4">
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Compose</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Firebase</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Maps</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Koin</span>
-                            </div>
-                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p3_title">Arbarrio</h3>
-                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight"
-                                data-i18n="p3_desc">App de arriendos en barrios periféricos: publica inmuebles, filtra, guarda favoritos y ve el mapa.</p>
-                            <div class="mt-2 md:mt-8 flex justify-center">
-                                <a href="https://github.com/Cordobot/Arbarrio" target="_blank" rel="noopener" class="btn-github"
-                                    aria-label="Ver en GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-github">
-                                        <path
-                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                                        <path d="M9 18c-4.51 2-5-2-7-2" />
-                                    </svg>
-                                    <span data-i18n="btn_view_github">Ver en GitHub</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project: Pronóstika -->
-                    <div
-                        class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                        <div class="aspect-video overflow-hidden cursor-pointer" onclick="openProjectModal(6)"><img
-                                src="assets/projects/pronostika.svg" alt="Pronóstika" loading="lazy"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        </div>
-                        <div class="p-2.5 md:p-6">
-                            <div class="flex flex-wrap gap-1 mb-1.5 md:mb-4">
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Compose</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Hilt</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Retrofit</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Coroutines</span>
-                            </div>
-                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p4_title">Pronóstika</h3>
-                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight"
-                                data-i18n="p4_desc">App del clima con pronóstico por horas y de 5 días, búsquedas recientes y Clean Architecture.</p>
-                            <div class="mt-2 md:mt-8 flex justify-center">
-                                <a href="https://github.com/Cordobot/Pronostika" target="_blank" rel="noopener" class="btn-github"
-                                    aria-label="Ver en GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-github">
-                                        <path
-                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                                        <path d="M9 18c-4.51 2-5-2-7-2" />
-                                    </svg>
-                                    <span data-i18n="btn_view_github">Ver en GitHub</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project: Tvshare -->
-                    <div
-                        class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                        <div class="aspect-video overflow-hidden cursor-pointer" onclick="openProjectModal(7)"><img
-                                src="assets/projects/tvshare.svg" alt="Tvshare" loading="lazy"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        </div>
-                        <div class="p-2.5 md:p-6">
-                            <div class="flex flex-wrap gap-1 mb-1.5 md:mb-4">
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">KMP</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">H.264</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">FFmpeg</span>
-                            </div>
-                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p5_title">Tvshare</h3>
-                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight"
-                                data-i18n="p5_desc">Transmite la pantalla y el audio de una Android TV a la PC por red local en tiempo real.</p>
-                            <div class="mt-2 md:mt-8 flex justify-center">
-                                <a href="https://github.com/Cordobot/Tvshare" target="_blank" rel="noopener" class="btn-github"
-                                    aria-label="Ver en GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-github">
-                                        <path
-                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                                        <path d="M9 18c-4.51 2-5-2-7-2" />
-                                    </svg>
-                                    <span data-i18n="btn_view_github">Ver en GitHub</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project: CorTV -->
-                    <div
-                        class="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2">
-                        <div class="aspect-video overflow-hidden cursor-pointer" onclick="openProjectModal(8)"><img
-                                src="assets/projects/cortv.svg" alt="CorTV" loading="lazy"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        </div>
-                        <div class="p-2.5 md:p-6">
-                            <div class="flex flex-wrap gap-1 mb-1.5 md:mb-4">
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Compose for TV</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">Media3</span>
-                                <span
-                                    class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full text-[7px] md:text-xs font-bold">ExoPlayer</span>
-                            </div>
-                            <h3 class="text-[11px] md:text-xl font-bold mb-0.5 md:mb-2" data-i18n="p6_title">CorTV</h3>
-                            <p class="text-[9px] md:text-sm text-slate-600 dark:text-slate-300 mb-2 md:mb-4 line-clamp-2 leading-tight"
-                                data-i18n="p6_desc">Reproductor para Android TV y móvil: TV en vivo, películas, series, animes y kids.</p>
-                            <div class="mt-2 md:mt-8 flex justify-center">
-                                <a href="https://github.com/Cordobot/CorTV" target="_blank" rel="noopener" class="btn-github"
-                                    aria-label="Ver en GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-github">
-                                        <path
-                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                                        <path d="M9 18c-4.51 2-5-2-7-2" />
-                                    </svg>
-                                    <span data-i18n="btn_view_github">Ver en GitHub</span>
-                                </a>
-                            </div>
+                        <div id="code-tabs" role="tablist"
+                            class="no-scrollbar flex overflow-x-auto bg-[#2b2d30] border-b border-black/40"></div>
+                        <pre class="code-view m-0 p-4 md:p-5 max-h-[26rem] overflow-auto text-[11.5px] md:text-[13px] leading-relaxed font-mono text-[#bcbec4]"><code id="code-view"></code></pre>
+                        <div class="flex items-start gap-2 px-4 py-3 bg-[#2b2d30] border-t border-black/40 text-xs text-slate-300">
+                            <i data-lucide="lightbulb" class="w-4 h-4 shrink-0 text-[#febc2e]"></i>
+                            <span id="code-note"></span>
                         </div>
                     </div>
                 </div>
@@ -809,48 +568,39 @@
         </div>
     </main>
 
-    <!-- Floating Contact Button (Universal) -->
-    <div id="floating-contact"
-        class="fixed top-8 right-8 z-[60] transition-all duration-500 opacity-100 pointer-events-auto">
-        <button onclick="toggleModal(true)" class="relative group cursor-pointer">
-            <div
-                class="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-teal-400 rounded-full md:rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-pulse">
-            </div>
-            <div
-                class="relative w-14 h-14 md:w-auto md:h-auto md:px-6 md:py-3.5 bg-white dark:bg-slate-900 rounded-full md:rounded-2xl flex items-center justify-center gap-3 border-4 border-transparent md:border-none shadow-xl">
-                <span class="hidden md:flex h-2.5 w-2.5 relative">
-                    <span
-                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                </span>
-                <span class="hidden md:inline text-slate-800 dark:text-white font-bold text-sm tracking-wide"
-                    data-i18n="nav_contact">Contacto</span>
-                <i data-lucide="mail" class="text-emerald-500 w-6 h-6 md:w-5 md:h-5"></i>
-            </div>
-        </button>
-    </div>
-
-    <!-- Scroll to Top -->
-    <button id="scroll-to-top"
-        class="fixed bottom-8 right-8 z-[60] w-14 h-14 flex items-center justify-center bg-emerald-600 text-white rounded-full shadow-2xl hover:bg-emerald-700 transition-all border-4 border-white dark:border-slate-950 group opacity-0 pointer-events-none translate-y-10 cursor-pointer"
-        aria-label="Scroll to top">
-        <i data-lucide="triangle" class="w-6 h-6 fill-current"></i>
+    <!-- Extended FAB (Material 3): contact -->
+    <button id="fab-contact" onclick="toggleModal(true)" data-ripple aria-label="Contacto"
+        class="fixed z-[96] right-4 bottom-24 lg:right-8 lg:bottom-8 h-14 pl-4 pr-5 rounded-2xl flex items-center gap-3 bg-emerald-100 text-emerald-900 dark:bg-emerald-800 dark:text-emerald-50 font-bold shadow-lg shadow-emerald-900/25 hover:shadow-xl transition-all duration-300 cursor-pointer">
+        <i data-lucide="mail" class="w-6 h-6 shrink-0"></i>
+        <span class="fab-label" data-i18n="nav_contact">Contacto</span>
     </button>
 
-    <!-- Project Zoom Modal (Mobile Only) -->
-    <div id="project-zoom-modal"
-        class="fixed inset-0 z-[150] flex items-center justify-center p-4 hidden opacity-0 transition-all duration-300 pointer-events-none">
-        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-md" onclick="closeProjectModal()"></div>
+    <!-- Small FAB: scroll to top -->
+    <button id="scroll-to-top" data-ripple aria-label="Volver arriba"
+        class="fixed z-[96] right-5 bottom-[10.5rem] lg:right-9 lg:bottom-28 w-12 h-12 flex items-center justify-center rounded-xl bg-white text-emerald-700 dark:bg-slate-800 dark:text-emerald-300 shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 opacity-0 pointer-events-none translate-y-6 cursor-pointer">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- APK install sheet: bottom sheet on phones, dialog on desktop -->
+    <div id="apk-sheet" class="fixed inset-0 z-[150] hidden" role="dialog" aria-modal="true" aria-labelledby="apk-title">
+        <div class="sheet-scrim absolute inset-0 bg-slate-900/50 backdrop-blur-sm opacity-0 transition-opacity duration-300"
+            onclick="closeApkSheet()"></div>
         <div
-            class="relative bg-white dark:bg-slate-900 w-full max-w-sm rounded-[2.5rem] shadow-2xl overflow-hidden transform scale-95 transition-all duration-300 border border-slate-200 dark:border-slate-800">
-            <button onclick="closeProjectModal()"
-                class="absolute top-4 right-4 z-10 p-2 bg-black/20 backdrop-blur-md text-white rounded-full hover:bg-black/40 transition-colors">
-                <i data-lucide="x" class="w-6 h-6"></i>
+            class="sheet-panel absolute inset-x-0 bottom-0 md:inset-x-auto md:bottom-auto md:left-1/2 md:top-1/2 md:w-[27rem] max-h-[90vh] overflow-y-auto bg-white dark:bg-slate-900 rounded-t-[1.75rem] md:rounded-[1.75rem] p-6 pt-3 md:pt-6 shadow-2xl">
+            <div class="md:hidden mx-auto mb-5 w-8 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+            <button onclick="closeApkSheet()" aria-label="Cerrar"
+                class="hidden md:flex absolute top-4 right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
+                <i data-lucide="x" class="w-5 h-5"></i>
             </button>
-            <div id="zoom-content" class="flex flex-col">
-                <!-- Content injected via JS -->
-            </div>
+            <div id="apk-sheet-content"></div>
         </div>
+    </div>
+
+    <!-- Snackbar -->
+    <div id="snackbar" role="status" aria-live="polite"
+        class="fixed z-[160] left-1/2 bottom-24 lg:bottom-8 w-max max-w-[calc(100vw-2rem)] min-w-[17rem] px-4 py-3 rounded-lg flex items-center gap-4 text-sm bg-slate-800 text-slate-50 dark:bg-slate-100 dark:text-slate-900 shadow-xl opacity-0 pointer-events-none transition-all duration-300">
+        <span id="snackbar-text"></span>
+        <button id="snackbar-action" class="ml-auto font-bold uppercase text-xs tracking-wider text-emerald-300 dark:text-emerald-700 hidden cursor-pointer"></button>
     </div>
 
     <!-- Contact Modal -->

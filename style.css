@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
 
 :root {
-    --primary-blue: #10b981;
+    --primary-blue: var(--color-emerald-500, #10b981);
     --cyan-400: #2dd4bf;
 }
 

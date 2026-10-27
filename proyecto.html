@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso de estudio | Adrián Alvarez</title>
+    <meta name="description" content="Caso de estudio de una app Android de Adrián Alvarez: problema, decisiones técnicas, retos y pruebas.">
+    <meta name="theme-color" content="#10b981">
+
+    <link href="./style_tailwind.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="theme.js" defer></script>
+    <script src="projects.js" defer></script>
+    <script src="case.js" defer></script>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- Top app bar (Material 3) -->
+    <header class="sticky top-0 z-50 bg-slate-50/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-6xl mx-auto h-16 px-2 md:px-6 flex items-center gap-2">
+            <a href="index.html#projects" data-ripple class="icon-btn !border-0" aria-label="Volver" id="back-link">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i></a>
+            <span class="text-lg font-bold truncate" id="bar-title">Caso de estudio</span>
+            <div class="ml-auto flex items-center gap-1">
+                <button type="button" onclick="toggleCaseLanguage()" data-ripple class="icon-btn !border-0 font-bold text-xs" id="lang-btn">ES</button>
+                <button type="button" onclick="toggleCaseTheme()" data-ripple class="icon-btn !border-0" aria-label="Cambiar tema">
+                    <i data-lucide="moon" id="theme-icon" class="w-5 h-5"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main id="case" class="max-w-6xl mx-auto px-5 md:px-6 pb-24"></main>
+
+    <footer class="max-w-6xl mx-auto px-6 py-10 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-600 dark:text-slate-300">
+        © <span id="year"></span> <span class="font-bold text-slate-900 dark:text-white">Adrián Alvarez</span>
+    </footer>
+</body>
+
+</html>
